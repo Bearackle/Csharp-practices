@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("array_list_dict")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17471c57a3e1b59d23c855465b25c15900cb831f")]
 [assembly: System.Reflection.AssemblyProductAttribute("array_list_dict")]
 [assembly: System.Reflection.AssemblyTitleAttribute("array_list_dict")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
