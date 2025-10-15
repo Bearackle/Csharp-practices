@@ -1,0 +1,258 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\views\\movies\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:views\\movies\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\views\\movies\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:views\\movies\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\views\\movies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:views\\movies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\migrations\\202510150413168_dataannotations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:migrations\\202510150413168_dataannotations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\migrations\\202510150356486_rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:migrations\\202510150356486_rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|E:\\train-dotnet\\aspnet\\FirstASPNetApp\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|e:\\train-dotnet\\aspnet\\firstaspnetapp\\migrations\\202510150345178_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9898F445-4F60-44D0-82D2-08FB4B53E114}|FirstASPNetApp.csproj|solutionrelative:migrations\\202510150345178_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAYwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T06:49:16.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T06:35:12.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FilterConfig.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\App_Start\\FilterConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\App_Start\\FilterConfig.cs",
+              "RelativeToolTip": "App_Start\\FilterConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T06:35:10.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "202510150356486_Rating.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\202510150356486_Rating.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510150356486_Rating.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\202510150356486_Rating.cs",
+              "RelativeToolTip": "Migrations\\202510150356486_Rating.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T03:56:53.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Movies\\Details.cshtml",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Details.cshtml",
+              "RelativeToolTip": "Views\\Movies\\Details.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T03:52:59.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Movies\\Index.cshtml",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Index.cshtml",
+              "RelativeToolTip": "Views\\Movies\\Index.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T03:52:56.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Movies\\Create.cshtml",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Create.cshtml",
+              "RelativeToolTip": "Views\\Movies\\Create.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T03:51:57.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MoviesController.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Controllers\\MoviesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MoviesController.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Controllers\\MoviesController.cs",
+              "RelativeToolTip": "Controllers\\MoviesController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAYwEwAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T03:51:41.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Movies\\Delete.cshtml",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Movies\\Delete.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T03:52:59.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Movies\\Edit.cshtml",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Views\\Movies\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Movies\\Edit.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwDYAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-15T04:20:19.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "202510150413168_DataAnnotations.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\202510150413168_DataAnnotations.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510150413168_DataAnnotations.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\202510150413168_DataAnnotations.cs",
+              "RelativeToolTip": "Migrations\\202510150413168_DataAnnotations.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T04:13:21.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Models\\Movie.cs",
+              "RelativeDocumentMoniker": "Models\\Movie.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Models\\Movie.cs",
+              "RelativeToolTip": "Models\\Movie.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAowBQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T03:41:13.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "202510150345178_Initial.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\202510150345178_Initial.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510150345178_Initial.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\202510150345178_Initial.cs",
+              "RelativeToolTip": "Migrations\\202510150345178_Initial.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowBQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T03:45:21.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "Migrations\\Configuration.cs",
+              "ToolTip": "E:\\train-dotnet\\aspnet\\FirstASPNetApp\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "Migrations\\Configuration.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAcwDcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-15T03:38:01.918Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
