@@ -1,0 +1,8 @@
+E:\train-dotnet\Sample-code\Day03\bin\Debug\Day03.exe.config
+E:\train-dotnet\Sample-code\Day03\bin\Debug\Day03.exe
+E:\train-dotnet\Sample-code\Day03\bin\Debug\Day03.pdb
+E:\train-dotnet\Sample-code\Day03\obj\Debug\Day03.csproj.AssemblyReference.cache
+E:\train-dotnet\Sample-code\Day03\obj\Debug\Day03.csproj.CoreCompileInputs.cache
+E:\train-dotnet\Sample-code\Day03\obj\Debug\Day03.exe
+E:\train-dotnet\Sample-code\Day03\obj\Debug\Day03.pdb
+E:\train-dotnet\Sample-code\Day03\obj\Debug\Day03.exe.config

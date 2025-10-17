@@ -1,0 +1,479 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\train-dotnet\\Sample-code\\Day04\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\relationship\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\relationship\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\relationship\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\relationship\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\relationship\\grade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\relationship\\grade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\relationship\\studentaddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\relationship\\studentaddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\fulltimeemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\fulltimeemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\partimeemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\partimeemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\mydatabaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:mydatabaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130836398_add_pending_change.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130836398_add_pending_change.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130817272_add_course_table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130817272_add_course_table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130737503_create_grade_table_and_in_student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130737503_create_grade_table_and_in_student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130719042_update_entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130719042_update_entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130710280_add_student_relationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130710280_add_student_relationship.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130447035_create_foreign_key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130447035_create_foreign_key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130417208_update_product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130417208_update_product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130445537_renam_brand_column.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130445537_renam_brand_column.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130443270_drop_brand_id_column.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130443270_drop_brand_id_column.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130434273_drop_foreign_key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130434273_drop_foreign_key.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130400436_update_product_brand_id.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130400436_update_product_brand_id.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|e:\\train-dotnet\\sample-code\\day04\\migrations\\202510130419580_rename_brandid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{172C3E6F-BC31-4C38-9A87-F6DC615D7C5D}|Day04.csproj|solutionrelative:migrations\\202510130419580_rename_brandid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Brand.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\Brand.cs",
+              "RelativeDocumentMoniker": "model\\Brand.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\Brand.cs",
+              "RelativeToolTip": "model\\Brand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T03:49:54.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentAddress.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\StudentAddress.cs",
+              "RelativeDocumentMoniker": "model\\relationship\\StudentAddress.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\StudentAddress.cs",
+              "RelativeToolTip": "model\\relationship\\StudentAddress.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwBEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T06:59:11.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Student.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\Student.cs",
+              "RelativeDocumentMoniker": "model\\relationship\\Student.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\Student.cs",
+              "RelativeToolTip": "model\\relationship\\Student.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T06:58:27.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Grade.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\Grade.cs",
+              "RelativeDocumentMoniker": "model\\relationship\\Grade.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\Grade.cs",
+              "RelativeToolTip": "model\\relationship\\Grade.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:30:42.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Course.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\Course.cs",
+              "RelativeDocumentMoniker": "model\\relationship\\Course.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\relationship\\Course.cs",
+              "RelativeToolTip": "model\\relationship\\Course.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:05:11.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "Migrations\\Configuration.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T03:26:20.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAnwEoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T03:29:54.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "AppDbContext.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\AppDbContext.cs",
+              "RelativeToolTip": "AppDbContext.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAjwA8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T03:24:34.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\Employee.cs",
+              "RelativeDocumentMoniker": "model\\Employee.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\Employee.cs",
+              "RelativeToolTip": "model\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T03:36:18.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FulltimeEmployee.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\FulltimeEmployee.cs",
+              "RelativeDocumentMoniker": "model\\FulltimeEmployee.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\FulltimeEmployee.cs",
+              "RelativeToolTip": "model\\FulltimeEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:53:05.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PartimeEmployee.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\PartimeEmployee.cs",
+              "RelativeDocumentMoniker": "model\\PartimeEmployee.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\PartimeEmployee.cs",
+              "RelativeToolTip": "model\\PartimeEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:53:08.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\model\\Product.cs",
+              "RelativeDocumentMoniker": "model\\Product.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\model\\Product.cs",
+              "RelativeToolTip": "model\\Product.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T03:27:28.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MyDatabaseInitializer.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\MyDatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "MyDatabaseInitializer.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\MyDatabaseInitializer.cs",
+              "RelativeToolTip": "MyDatabaseInitializer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:53:10.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "202510130836398_add_pending_change.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130836398_add_pending_change.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130836398_add_pending_change.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130836398_add_pending_change.cs",
+              "RelativeToolTip": "Migrations\\202510130836398_add_pending_change.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:36:42.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "202510130817272_add_course_table.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130817272_add_course_table.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130817272_add_course_table.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130817272_add_course_table.cs",
+              "RelativeToolTip": "Migrations\\202510130817272_add_course_table.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAIBAwCAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T08:17:31.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "202510130737503_create_grade_table_and_in_student.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130737503_create_grade_table_and_in_student.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130737503_create_grade_table_and_in_student.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130737503_create_grade_table_and_in_student.cs",
+              "RelativeToolTip": "Migrations\\202510130737503_create_grade_table_and_in_student.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAowB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:37:55.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "202510130719042_update_entity.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130719042_update_entity.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130719042_update_entity.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130719042_update_entity.cs",
+              "RelativeToolTip": "Migrations\\202510130719042_update_entity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:19:08.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "202510130710280_add_student_relationship.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130710280_add_student_relationship.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130710280_add_student_relationship.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130710280_add_student_relationship.cs",
+              "RelativeToolTip": "Migrations\\202510130710280_add_student_relationship.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA1wBkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:10:32.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "202510130447035_create_foreign_key.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130447035_create_foreign_key.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130447035_create_foreign_key.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130447035_create_foreign_key.cs",
+              "RelativeToolTip": "Migrations\\202510130447035_create_foreign_key.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:47:07.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "App.config",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-13T07:05:42.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "packages.config",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\packages.config",
+              "RelativeDocumentMoniker": "packages.config",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\packages.config",
+              "RelativeToolTip": "packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-13T04:53:10.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "202510130445537_renam_brand_column.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130445537_renam_brand_column.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130445537_renam_brand_column.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130445537_renam_brand_column.cs",
+              "RelativeToolTip": "Migrations\\202510130445537_renam_brand_column.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:45:58.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "202510130417208_update_product.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130417208_update_product.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130417208_update_product.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130417208_update_product.cs",
+              "RelativeToolTip": "Migrations\\202510130417208_update_product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:35:04.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "202510130443270_drop_brand_Id_column.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130443270_drop_brand_Id_column.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130443270_drop_brand_Id_column.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130443270_drop_brand_Id_column.cs",
+              "RelativeToolTip": "Migrations\\202510130443270_drop_brand_Id_column.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA1wAkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:43:31.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "202510130434273_drop_foreign_key.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130434273_drop_foreign_key.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130434273_drop_foreign_key.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130434273_drop_foreign_key.cs",
+              "RelativeToolTip": "Migrations\\202510130434273_drop_foreign_key.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:34:31.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "202510130400436_update_product_brand_id.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130400436_update_product_brand_id.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130400436_update_product_brand_id.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130400436_update_product_brand_id.cs",
+              "RelativeToolTip": "Migrations\\202510130400436_update_product_brand_id.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:00:48.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "202510130419580_rename_BrandId.cs",
+              "DocumentMoniker": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130419580_rename_BrandId.cs",
+              "RelativeDocumentMoniker": "Migrations\\202510130419580_rename_BrandId.cs",
+              "ToolTip": "E:\\train-dotnet\\Sample-code\\Day04\\Migrations\\202510130419580_rename_BrandId.cs",
+              "RelativeToolTip": "Migrations\\202510130419580_rename_BrandId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T04:20:02.44Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
