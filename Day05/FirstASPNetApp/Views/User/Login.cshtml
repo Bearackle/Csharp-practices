@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    @ViewBag.Title
+</h2>
+<p>Hello from my application</p>4
+<p>
+    <ul>
+        @{ for (int i = 0; i < 10; i++)
+            {
+        <li>@ViewBag.Message</li>
+                }
+            }
+    </ul>
+</p>
