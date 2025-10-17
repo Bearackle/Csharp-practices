@@ -1,0 +1,51 @@
+## Build Folders
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Pp]ublish/
+
+## User-specific files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+
+## Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## Environment
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+.env
+
+## System files
+*.tmp
+*.temp
+*.log
+*.cache
+*.bak
+*.backup
+*.old
+*.swp
+
+## Node / Frontend
+node_modules/
+dist/
+wwwroot/lib/
+
+## Others
+_ReSharper*/
+*.resharper
