@@ -1,0 +1,37 @@
+﻿@model PagedList.IPagedList<MyNerdDinner.Models.Dinner>
+@{
+    ViewBag.Title = "Upcomming Nerd Dinner";
+}
+<div class='hslice' id='1'>
+    <h2 class='entry-title'>
+        Upcoming Dinners
+    </h2>
+    <a rel='feedurl' href='/Dinners/WebSliceUpcoming' style='display: none;'></a>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayName("Title")</th>
+            <th>@Html.DisplayName("Event Date")</th>
+            <th>@Html.DisplayName("Address")</th>
+            <th></th>
+        </tr>
+        @foreach (var dinner in Model)
+        {
+            <tr>
+               <td>@Html.ActionLink(dinner.Title, "Details", new { id = dinner.DinnerID })</td> 
+               <td>
+                   <strong>
+                       @dinner.EventDate.ToString("dd-MM-yyyy")
+                       @dinner.EventDate.ToString("HH:mm tt")
+                   </strong>
+               </td>
+               <td> @(dinner.Address + " " + dinner.Country)</td>
+                <td>
+                    @Html.ActionLink("Edit","Edit", new {id = dinner.DinnerID})
+                    @Html.ActionLink("Detail", "Details", new {id = dinner.DinnerID})
+                    @Html.ActionLink("Delete", "Delete", new {id = dinner.DinnerID})
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@Html.Partial("DinnerPagination")
