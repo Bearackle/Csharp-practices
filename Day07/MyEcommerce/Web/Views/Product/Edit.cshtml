@@ -141,18 +141,30 @@
             reader.readAsDataURL(file);
         }
 
+        //$('#newImages').on('change', function (e) {
+        //    var files = e.target.files;
+        //    var container = $('#newPreview');
+        //    container.empty();
+        //    for (var i = 0; i < files.length; i++) {
+        //        if (!files[i].type.match('image.*')) continue;
+        //        readAndPreview(files[i], container);
+        //    }
+        //});
         $('#newImages').on('change', function (e) {
-            var files = e.target.files;
+            var files = Array.from(e.target.files);
             var container = $('#newPreview');
             container.empty();
-            for (var i = 0; i < files.length; i++) {
-                if (!files[i].type.match('image.*')) continue;
-                readAndPreview(files[i], container);
-            }
+
+            files.forEach(file => {
+                if (!file.type.match('image.*')) return;
+                readAndPreview(file, container);
+            });
         });
 
         $(document).on('click', '.btn-remove-new', function () {
             $(this).closest('.new-img-item').remove();
+            $('#newImages').val('');
+            readAndPreview();
         });
 
         $(document).on('click', '.btn-remove-existing', function () {
