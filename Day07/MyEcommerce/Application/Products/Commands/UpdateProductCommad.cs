@@ -49,8 +49,20 @@ namespace MyEcommerce.Application.Products.Commands
                 product.Price = request.Price;
                 product.ProductStock = request.ProductStock;
                 product.CategoryId = request.CategoryId;
-                product.Images = request.Images;
-                product.Attributes = request.Attributes;
+                if (request.Images != null)
+                {
+                    foreach (var image in request.Images)
+                    {
+                        product.Images.Add(image);
+                    }
+                }
+                if (request.Attributes != null)
+                {
+                    foreach (var attr in request.Attributes)
+                    {
+                        product.Attributes.Add(attr);
+                    }
+                }
                 await _context.SaveChangeAsync();
                 return Unit.Value;
             }

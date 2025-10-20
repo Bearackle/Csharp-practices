@@ -75,14 +75,17 @@
             </tr>
         </thead>
         <tbody>
-            @for (int i = 0; i < Model.Attributes.Count; i++)
+            @if (Model.Attributes != null)
             {
+                for (int i = 0; i < Model.Attributes.Count; i++)
+                {
                 <tr>
                     <td>@Html.TextBoxFor(m => (Model.Attributes).ToList()[i].AttributeName, new { @class = "form-control" })</td>
                     <td>@Html.TextBoxFor(m => (Model.Attributes).ToList()[i].AttributeNumericValue, new { @class = "form-control" })</td>
                     <td>@Html.TextBoxFor(m => (Model.Attributes).ToList()[i].AttributeCharacterValue, new { @class = "form-control" })</td>
                     <td><button type="button" class="btn btn-danger btn-remove">X</button></td>
                 </tr>
+                }
             }
         </tbody>
     </table>
@@ -131,18 +134,34 @@
             reader.readAsDataURL(file);
         }
 
+        //$('#newImages').on('change', function (e) {
+        //    var files = e.target.files;
+        //    var container = $('#newPreview');
+        //    container.empty();
+        //    for (var i = 0; i < files.length; i++) {
+        //        if (!files[i].type.match('image.*')) continue;
+        //        readAndPreview(files[i], container);
+        //    }
+        //});
         $('#newImages').on('change', function (e) {
-            var files = e.target.files;
+            var files = Array.from(e.target.files);
             var container = $('#newPreview');
             container.empty();
-            for (var i = 0; i < files.length; i++) {
-                if (!files[i].type.match('image.*')) continue;
-                readAndPreview(files[i], container);
-            }
+
+            files.forEach(file => {
+                if (!file.type.match('image.*')) return;
+                readAndPreview(file, container);
+            });
         });
 
+        //$(document).on('click', '.btn-remove-new', function () {
+        //    $(this).closest('.new-img-item').remove();
+        //});
         $(document).on('click', '.btn-remove-new', function () {
             $(this).closest('.new-img-item').remove();
+            // Reset input file
+            $('#newImages').val('');
+            readAndPreview();
         });
 
         $(document).on('click', '.btn-remove-existing', function () {

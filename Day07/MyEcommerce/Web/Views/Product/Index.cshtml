@@ -47,8 +47,8 @@
                 <div class="col">
                     <div class="card h-100 shadow-sm">
                         <div class="ratio ratio-4x3">
-                            @*<img src="@(string.IsNullOrWhiteSpace(p.Images.First().ImagePath) ? Url.Content("~/Content/images/placeholder.png") : p.Images.First().ImagePath)"
-                                 class="card-img-top object-fit-cover" alt="@p.ProductName" />*@
+                            <img src="@(string.IsNullOrWhiteSpace(p.Images.First().ImagePath) ? Url.Content("~/Content/images/placeholder.png") : p.Images.First().ImagePath)"
+                                 class="card-img-top object-fit-cover" alt="@p.ProductName" />
                         </div>
                         <div class="card-body d-flex flex-column">
                             <h6 class="card-title mb-2 text-truncate" title="@p.ProductName">@p.ProductName</h6>

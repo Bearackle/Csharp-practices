@@ -46,14 +46,17 @@ namespace MyEcommerce.Web.Controllers
                 ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName", product.CategoryId);
                 return View(product);
             }
-            var CreateImagesPath = await _mediator.Send(new UploadFileCloudinaryCommand(NewImages));
-            product.Images = new List<ProductImage>();
-            foreach(string path in CreateImagesPath)
+            if (NewImages != null && NewImages.Any(f => f != null && f.ContentLength > 0))
             {
-                product.Images.Add(new ProductImage()
+                var CreateImagesPath = await _mediator.Send(new UploadFileCloudinaryCommand(NewImages));
+                product.Images = new List<ProductImage>();
+                foreach (string path in CreateImagesPath)
                 {
-                    ImagePath = path,
-                });
+                    product.Images.Add(new ProductImage()
+                    {
+                        ImagePath = path,
+                    });
+                }
             }
             await _mediator.Send(new CreateProductCommand(product));
             return RedirectToAction("Index");
@@ -70,13 +73,27 @@ namespace MyEcommerce.Web.Controllers
             return View(product);
         }
         [HttpPost]
-        public async Task<ActionResult> Edit(Product product)
+        public async Task<ActionResult> Edit(Product product, HttpPostedFileBase[] NewImages)
         {
             if (!ModelState.IsValid)
             {
+                IEnumerable<Category> categories = await _mediator.Send(new GetCategoriesQuery());
+                ViewBag.Categories = new SelectList(categories, "CategoryId", "CategoryName", product.CategoryId);
                 return View(product);
             }
-            await _mediator.Send(new UpdateProductCommad(product));
+            if (NewImages != null && NewImages.Any(f => f != null && f.ContentLength > 0))
+            {
+                var CreateImagesPath = await _mediator.Send(new UploadFileCloudinaryCommand(NewImages));
+                product.Images = new List<ProductImage>();
+                foreach (string path in CreateImagesPath)
+                {
+                    product.Images.Add(new ProductImage()
+                    {
+                        ImagePath = path,
+                    });
+                }
+            }
+            await _mediator.Send(new UpdateProductCommad(product)); 
             return RedirectToAction("Index");
         }
         public async Task<ActionResult> Details(int id = 0)
@@ -87,6 +104,12 @@ namespace MyEcommerce.Web.Controllers
                 return HttpNotFound();
             }
             return View(p);
+        }
+        [HttpDelete]
+        public async Task<Unit> RemoveImage(int ImageId, int ProductId)
+        {
+            await _mediator.Send(new RemoveImageCommand(ProductId, ImageId));
+            return Unit.Value;
         }
     }
 }
