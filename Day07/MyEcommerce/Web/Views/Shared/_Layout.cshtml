@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Store</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/images/logo.png" alt="Logo" style="height:36px; width:auto; margin-right:8px;" />
+                    <strong>Bách hóa tương lai</strong>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Products", "Index", "Product", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+
+                    <form class="d-flex me-3" method="get" action="@Url.Action("Index", "Products")" role="search">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Tìm sản phẩm, thương hiệu..." aria-label="Search" />
+                        <button class="btn btn-outline-light" type="submit">Tìm</button>
+                    </form>
+
+                    <div class="d-flex align-items-center">
+                        <a class="btn btn-outline-light me-2 position-relative" href="@Url.Action("Cart", "Orders")" title="Giỏ hàng">
+                            <i class="bi bi-cart3"></i> Giỏ hàng
+                            <span class="badge bg-danger position-absolute top-0 start-100 translate-middle"
+                                  style="font-size:0.7rem;">
+                                @((ViewBag.CartCount ?? 0))
+                            </span>
+                        </a>
+
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="bg-light py-4 shadow-sm">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h4 mb-0"> @ViewBag.PageHeading</h1>
+                    <small class="text-muted">Sản phẩm chất lượng — Giao hàng nhanh</small>
+                </div>
+                <div class="d-none d-md-block">
+                    @RenderSection("promo", required: false)
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        @RenderBody()
+    </main>
+
+    <footer class="bg-dark text-light py-4 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h6>MyEcommerce</h6>
+                    <p class="small text-muted mb-0">© @DateTime.Now.Year MyEcommerce. All rights reserved.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h6>Hỗ trợ</h6>
+                    <ul class="list-unstyled small">
+                        <li>@Html.ActionLink("Chính sách", "Privacy", "Home", new { area = "" }, new { @class = "text-light" })</li>
+                        <li>@Html.ActionLink("Liên hệ", "Contact", "Home", new { area = "" }, new { @class = "text-light" })</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3 text-md-end">
+                    <h6>Follow</h6>
+                    <div class="small">
+                        <a class="text-light me-2" href="#" aria-label="facebook">Facebook</a>
+                        <a class="text-light" href="#" aria-label="instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
