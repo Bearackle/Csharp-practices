@@ -1,0 +1,209 @@
+﻿@model MyEcommerce.Domain.Entities.Product
+@{
+    Layout = "~/Web/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model == null)
+{
+    <div class="container my-5">
+        <div class="alert alert-warning">Sản phẩm không tồn tại.</div>
+    </div>
+}
+else
+{
+    <div class="container my-4">
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb bg-transparent p-0 mb-0">
+                <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                <li class="breadcrumb-item">@Html.ActionLink("Sản phẩm", "Index", "Product")</li>
+                @if (Model.Category != null)
+                {
+                    <li class="breadcrumb-item">
+                        @Html.ActionLink(Model.Category.CategoryName, "Index", "Product", new { category = Model.CategoryId }, null)
+                    </li>
+                }
+                <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
+            </ol>
+        </nav>
+
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        @* Carousel for images *@
+                        <div id="productCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded" style="background:#f8f9fa;">
+                                @{
+                                    var imgs = Model.Images?.ToList() ?? new List<MyEcommerce.Domain.Entities.ProductImage>();
+                                    if (!imgs.Any())
+                                    {
+                                        imgs.Add(new MyEcommerce.Domain.Entities.ProductImage { ImagePath = Url.Content("~/Content/images/placeholder.png") });
+                                    }
+                                    for (int i = 0; i < imgs.Count; i++)
+                                    {
+                                        var img = imgs[i];
+                                        var src = string.IsNullOrWhiteSpace(img.ImagePath) ? Url.Content("~/Content/images/placeholder.png") : Url.Content(img.ImagePath);
+                                        <div class="carousel-item @(i == 0 ? "active" : "") text-center">
+                                            <img src="@src" class="img-fluid" style="max-height:420px; object-fit:contain;" alt="@Model.ProductName" />
+                                        </div>
+                                    }
+                                }
+                            </div>
+
+                            @if ((Model.Images?.Any() ?? false) || (Model.Images == null))
+                            {
+                                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            }
+
+                        </div>
+
+                        @* Thumbnails *@
+                        <div class="d-flex gap-2 flex-wrap">
+                            @{
+                                var thumbs = Model.Images?.ToList() ?? new List<MyEcommerce.Domain.Entities.ProductImage>();
+                                if (!thumbs.Any()) { thumbs.Add(new MyEcommerce.Domain.Entities.ProductImage { ImagePath = Url.Content("~/Content/images/placeholder.png") }); }
+                                for (int i = 0; i < thumbs.Count; i++)
+                                {
+                                    var t = thumbs[i];
+                                    var src = string.IsNullOrWhiteSpace(t.ImagePath) ? Url.Content("~/Content/images/placeholder.png") : Url.Content(t.ImagePath);
+                                    <img src="@src" class="img-thumbnail" style="width:88px; height:66px; object-fit:cover; cursor:pointer;" data-bs-target="#productCarousel" data-bs-slide-to="@i" />
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h1 class="h4 mb-2">@Model.ProductName</h1>
+
+                        <div class="mb-2 text-muted small">
+                            @if (Model.Category != null)
+                            {
+                                <span>@Model.Category.CategoryName</span>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <span class="h4 text-primary fw-bold">
+                                @((Model.Price).ToString("N0")) đ
+                            </span>
+                            <span class="ms-2">
+                                @if (Model.ProductStock > 0)
+                                {
+                                    <span class="badge bg-success">Còn @Model.ProductStock</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">Hết hàng</span>
+                                }
+                            </span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="small text-muted">Số lượng</label>
+                            <div class="d-flex align-items-center gap-2">
+                                <input type="number" id="qty" name="qty" class="form-control" value="1" min="1" max="@Math.Max(1, Model.ProductStock)" style="width:110px;" />
+                                <button id="btnAddToCart" class="btn btn-primary">Thêm vào giỏ</button>
+                                <a href="@Url.Action("Index","Product")" class="btn btn-outline-secondary">Tiếp tục mua sắm</a>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <div>
+                            <h6 class="mb-2">Thuộc tính</h6>
+                            @if (Model.Attributes != null && Model.Attributes.Any())
+                            {
+                                <dl class="row small">
+                                    @foreach (var a in Model.Attributes)
+                                    {
+                                        <dt class="col-sm-4 text-truncate">@a.AttributeName</dt>
+                                        <dd class="col-sm-8 mb-2">
+                                            @{
+                                                var parts = new List<string>();
+                                                if (a.AttributeNumericValue != null) { parts.Add(a.AttributeNumericValue.ToString()); }
+                                                if (!string.IsNullOrWhiteSpace(a.AttributeCharacterValue)) { parts.Add(a.AttributeCharacterValue); }
+                                            }
+                                            @(string.Join(" - ", parts))
+                                        </dd>
+                                    }
+                                </dl>
+                            }
+                            else
+                            {
+                                <div class="small text-muted">Không có thuộc tính.</div>
+                            }
+                        </div>
+
+                        <div class="mt-auto pt-3 small text-muted">
+                            Mã sản phẩm: <strong>@Model.ProductId</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* Optional full attributes table *@
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="mb-3">Chi tiết thuộc tính</h5>
+                @if (Model.Attributes != null && Model.Attributes.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Tên</th>
+                                    <th>Giá trị số</th>
+                                    <th>Giá trị ký tự</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var a in Model.Attributes)
+                                {
+                                    <tr>
+                                        <td>@a.AttributeName</td>
+                                        <td>@(a.AttributeNumericValue ?? (object)("-"))</td>
+                                        <td>@(!string.IsNullOrWhiteSpace(a.AttributeCharacterValue) ? a.AttributeCharacterValue : "-")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else
+                {
+                    <div class="text-muted small">Không có thuộc tính chi tiết.</div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts {
+    <script>
+        (function () {
+            // Click thumbnail to change carousel handled by data-bs attributes (Bootstrap)
+            // Add to cart placeholder: implement real POST/JS as needed
+            document.getElementById('btnAddToCart')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                var qty = parseInt(document.getElementById('qty').value || "1");
+                if (qty < 1) qty = 1;
+                // replace with real add-to-cart call
+                alert('Thêm ' + qty + ' sản phẩm vào giỏ (demo).');
+            });
+        })();
+    </script>
+}
+
+

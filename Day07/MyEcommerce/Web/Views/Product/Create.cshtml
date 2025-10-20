@@ -1,0 +1,169 @@
+﻿@model MyEcommerce.Domain.Entities.Product
+
+@{
+    Layout = "~/Web/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+            <div class="form-group row g-4">
+                @Html.LabelFor(m => m.ProductName)
+                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+            </div>
+            <div class="form-group row g-4">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CategoryId, "Category")
+                    @Html.DropDownListFor(m => m.CategoryId, ViewBag.Categories as SelectList, "--Chon danh muc", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(m => m.CategoryId)
+                </div>
+            </div>
+            <div class="form-group row g-4">
+                @Html.LabelFor(m => m.Price)
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+            </div>
+            <div class="form-group row g-4">
+                @Html.LabelFor(m => m.ProductStock)
+                @Html.TextBoxFor(m => m.ProductStock, new { @class = "form-control" })
+            </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Ảnh sản phẩm</label>
+
+                        <div id="existingImages" class="mb-3">
+                            @if (Model.Images != null && Model.Images.Any())
+                            {
+                                <div class="row g-2">
+                                    @foreach (var img in Model.Images)
+                                    {
+                                        <div class="col-6 position-relative img-item" data-imageid="@img.ImageId">
+                                            <img src="@(string.IsNullOrWhiteSpace(img.ImagePath) ? Url.Content("~/Content/images/placeholder.png") : Url.Content(img.ImagePath))"
+                                                 class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" />
+                                            <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 btn-remove-existing"
+                                                    data-imageid="@img.ImageId" title="Xóa ảnh">&times;</button>
+                                            <input type="hidden" name="ExistingImageIds" value="@img.ImageId" />
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-muted small">Chưa có ảnh cho sản phẩm.</div>
+                            }
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="newImages" class="form-label small">Thêm ảnh mới</label>
+                            <input id="newImages" name="NewImages" type="file" accept="image/*" multiple class="form-control" />
+                            <div class="form-text small">Bạn có thể chọn nhiều file. Tối đa XMB/file.</div>
+                        </div>
+
+                        <div id="newPreview" class="row g-2 mt-2"></div>
+
+                        <div id="removedImagesContainer"></div>
+
+                        <div class="mt-4">
+                            <button type="button" id="btnAddImageInput" class="btn btn-outline-secondary btn-sm me-2">Thêm input ảnh</button>
+                            <button type="submit" class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+    <h4>Product Attributes</h4>
+    <table class="table" id="attributesTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Numeric Value</th>
+                <th>Character Value</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Attributes.Count; i++)
+            {
+                <tr>
+                    <td>@Html.TextBoxFor(m => (Model.Attributes).ToList()[i].AttributeName, new { @class = "form-control" })</td>
+                    <td>@Html.TextBoxFor(m => (Model.Attributes).ToList()[i].AttributeNumericValue, new { @class = "form-control" })</td>
+                    <td>@Html.TextBoxFor(m => (Model.Attributes).ToList()[i].AttributeCharacterValue, new { @class = "form-control" })</td>
+                    <td><button type="button" class="btn btn-danger btn-remove">X</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="button" id="btnAddAttribute" class="btn btn-primary">+ Add Attribute</button>
+    <hr />
+    <button type="submit" class="btn btn-success">Save</button>
+}
+
+@section scripts {
+    <script>
+    $(function () {
+        var index = @Model.Attributes.Count;
+
+        $('#btnAddAttribute').click(function () {
+            var newRow = `
+                <tr>
+                    <td><input class="form-control" name="Attributes[${index}].AttributeName" /></td>
+                    <td><input class="form-control" name="Attributes[${index}].AttributeNumericValue" /></td>
+                    <td><input class="form-control" name="Attributes[${index}].AttributeCharacterValue" /></td>
+                    <td><button type="button" class="btn btn-danger btn-remove">X</button></td>
+                </tr>`;
+            $('#attributesTable tbody').append(newRow);
+            index++;
+        });
+
+        $(document).on('click', '.btn-remove', function () {
+            $(this).closest('tr').remove();
+        });
+    });
+        $(document).on('click', '.btn-remove', function () {
+            $(this).closest('tr').remove();
+        });
+
+        // Image add / preview / remove logic
+        function readAndPreview(file, container) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var html = `
+                    <div class="col-6 position-relative new-img-item">
+                        <img src="${e.target.result}" class="img-fluid rounded" style="height:120px; width:100%; object-fit:cover;" />
+                        <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-1 btn-remove-new">×</button>
+                    </div>`;
+                container.append(html);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        $('#newImages').on('change', function (e) {
+            var files = e.target.files;
+            var container = $('#newPreview');
+            container.empty();
+            for (var i = 0; i < files.length; i++) {
+                if (!files[i].type.match('image.*')) continue;
+                readAndPreview(files[i], container);
+            }
+        });
+
+        $(document).on('click', '.btn-remove-new', function () {
+            $(this).closest('.new-img-item').remove();
+        });
+
+        $(document).on('click', '.btn-remove-existing', function () {
+            var imgId = $(this).data('imageid');
+            $(this).closest('.img-item').remove();
+            $('input[name="ExistingImageIds"][value="' + imgId + '"]').remove();
+            $('#removedImagesContainer').append('<input type="hidden" name="RemovedImageIds" value="' + imgId + '" />');
+        });
+
+        $('#btnAddImageInput').on('click', function () {
+            var idx = Date.now();
+            var html = `<div class="input-group mb-2 new-input-row">
+                            <input type="file" name="NewImageFiles" accept="image/*" class="form-control" />
+                            <button type="button" class="btn btn-outline-danger btn-remove-input">X</button>
+                        </div>`;
+            $(this).before(html);
+        });
+
+        $(document).on('click', '.btn-remove-input', function () {
+            $(this).closest('.new-input-row').remove();
+        });
+    ;
+    </script>
+}
