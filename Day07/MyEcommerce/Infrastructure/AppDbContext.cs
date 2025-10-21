@@ -18,6 +18,8 @@ namespace MyEcommerce.Infrastructure
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<ProductAttribute> ProductAttributes { get; set; }
 
         public AppDbContext() : base("AppConnection")
         {

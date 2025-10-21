@@ -2,7 +2,7 @@
 @{
     Layout = "~/Web/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(m => m.ProductId)
     <div class="form-group row g-4">
@@ -141,15 +141,6 @@
             reader.readAsDataURL(file);
         }
 
-        //$('#newImages').on('change', function (e) {
-        //    var files = e.target.files;
-        //    var container = $('#newPreview');
-        //    container.empty();
-        //    for (var i = 0; i < files.length; i++) {
-        //        if (!files[i].type.match('image.*')) continue;
-        //        readAndPreview(files[i], container);
-        //    }
-        //});
         $('#newImages').on('change', function (e) {
             var files = Array.from(e.target.files);
             var container = $('#newPreview');
@@ -172,6 +163,25 @@
             $(this).closest('.img-item').remove();
             $('input[name="ExistingImageIds"][value="' + imgId + '"]').remove();
             $('#removedImagesContainer').append('<input type="hidden" name="RemovedImageIds" value="' + imgId + '" />');
+            var deleteUrl = '@Url.Action("RemoveImage", "Products")';
+            console.log(deleteUrl)
+            console.log(imgId)
+            $.ajax({
+                url: deleteUrl,
+                type: 'POST',
+                data: {
+                    ImageId: imgId,
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $(this).closest('tr').remove();
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    alert("Đã xảy ra lỗi khi xóa.");
+                }
+            })
         });
 
         $('#btnAddImageInput').on('click', function () {

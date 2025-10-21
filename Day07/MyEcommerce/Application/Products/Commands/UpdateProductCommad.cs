@@ -63,7 +63,7 @@ namespace MyEcommerce.Application.Products.Commands
                         product.Attributes.Add(attr);
                     }
                 }
-                await _context.SaveChangeAsync();
+                await _context.SaveChangesAsync();
                 return Unit.Value;
             }
         }
