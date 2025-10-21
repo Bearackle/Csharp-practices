@@ -48,7 +48,7 @@ namespace MyEcommerce.Application.Products.Commands
                     Attributes = request.Attributes
                 };
                 _context.Products.Add(product);
-                await _context.SaveChangeAsync(cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
                 return product.ProductId;
             }
         }

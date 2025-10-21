@@ -3,7 +3,7 @@
 @{
     Layout = "~/Web/Views/Shared/_Layout.cshtml";
 }
-@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
             <div class="form-group row g-4">
                 @Html.LabelFor(m => m.ProductName)

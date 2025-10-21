@@ -9,13 +9,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace MyEcommerce.Web.Controllers
 {
-    public class ProductController : Controller
+    public class ProductsController : Controller
     {
         private readonly IMediator _mediator;
-        public ProductController(IMediator mediator)
+        public ProductsController(IMediator mediator)
         {
             _mediator = mediator;
         }        
@@ -105,11 +106,38 @@ namespace MyEcommerce.Web.Controllers
             }
             return View(p);
         }
-        [HttpDelete]
-        public async Task<Unit> RemoveImage(int ImageId, int ProductId)
+        [HttpPost]
+        public async Task<Unit> RemoveImage(int ImageId) 
         {
-            await _mediator.Send(new RemoveImageCommand(ProductId, ImageId));
+            await _mediator.Send(new RemoveImageCommand(ImageId));
             return Unit.Value;
+        }
+        [HttpGet]
+        public async Task<ActionResult> ProductFilter(ProductFilterModel filter)
+        {
+            var products = await _mediator.Send(new GetProductQuery());
+            if (filter.CategoryId != null)
+            {
+                products = products.Where(p => p.CategoryId == filter.CategoryId);
+            }
+            if (!filter.Sort.IsEmpty())
+            {
+                if(filter.Sort == "asc")
+                {
+                    products = products.OrderBy(p => p.Price);
+                }
+                else
+                {
+                    products = products.OrderByDescending(p => p.Price);
+                }
+            }
+            return PartialView("_ProductList", products);
+        }
+        [HttpGet]
+        public async Task<ActionResult> FlashSaleProducts()
+        {
+            var flsp = await _mediator.Send(new GetFlashSaleProductQuery());
+            return PartialView("_FlashSaleProducts", flsp);
         }
     }
 }

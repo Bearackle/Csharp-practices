@@ -15,11 +15,11 @@ else
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb bg-transparent p-0 mb-0">
                 <li class="breadcrumb-item">@Html.ActionLink("Trang chủ", "Index", "Home")</li>
-                <li class="breadcrumb-item">@Html.ActionLink("Sản phẩm", "Index", "Product")</li>
+                <li class="breadcrumb-item">@Html.ActionLink("Sản phẩm", "Index", "Products")</li>
                 @if (Model.Category != null)
                 {
                     <li class="breadcrumb-item">
-                        @Html.ActionLink(Model.Category.CategoryName, "Index", "Product", new { category = Model.CategoryId }, null)
+                        @Html.ActionLink(Model.Category.CategoryName, "Index", "Products", new { category = Model.CategoryId }, null)
                     </li>
                 }
                 <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
@@ -114,7 +114,7 @@ else
                             <div class="d-flex align-items-center gap-2">
                                 <input type="number" id="qty" name="qty" class="form-control" value="1" min="1" max="@Math.Max(1, Model.ProductStock)" style="width:110px;" />
                                 <button id="btnAddToCart" class="btn btn-primary">Thêm vào giỏ</button>
-                                <a href="@Url.Action("Index","Product")" class="btn btn-outline-secondary">Tiếp tục mua sắm</a>
+                                <a href="@Url.Action("Index","Products")" class="btn btn-outline-secondary">Tiếp tục mua sắm</a>
                             </div>
                         </div>
 
@@ -125,8 +125,13 @@ else
                             @if (Model.Attributes != null && Model.Attributes.Any())
                             {
                                 <dl class="row small">
+                  
                                     @foreach (var a in Model.Attributes)
                                     {
+                                        if (a.AttributeName == "Mô tả")
+                                        {
+                                            continue;
+                                        }
                                         <dt class="col-sm-4 text-truncate">@a.AttributeName</dt>
                                         <dd class="col-sm-8 mb-2">
                                             @{
@@ -156,29 +161,13 @@ else
         @* Optional full attributes table *@
         <div class="card mt-4">
             <div class="card-body">
-                <h5 class="mb-3">Chi tiết thuộc tính</h5>
-                @if (Model.Attributes != null && Model.Attributes.Any())
+                <h5 class="mb-3">Mô tả</h5>
+                @if (Model.Attributes != null && Model.Attributes.Any(f => f.AttributeName == "Mô tả"))
                 {
-                    <div class="table-responsive">
-                        <table class="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th>Tên</th>
-                                    <th>Giá trị số</th>
-                                    <th>Giá trị ký tự</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var a in Model.Attributes)
-                                {
-                                    <tr>
-                                        <td>@a.AttributeName</td>
-                                        <td>@(a.AttributeNumericValue ?? (object)("-"))</td>
-                                        <td>@(!string.IsNullOrWhiteSpace(a.AttributeCharacterValue) ? a.AttributeCharacterValue : "-")</td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
+                    <div>
+                        <p>
+                            @Model.Attributes.FirstOrDefault(attr => attr.AttributeName == "Mô tả").AttributeCharacterValue
+                        </p>
                     </div>
                 }
                 else

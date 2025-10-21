@@ -1,33 +1,173 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@{
+    var categories = ViewBag.Categories ?? new[] {
+        new { CategoryId = 17, Name = "Thời trang & phụ kiện", ImageUrl = "~/Content/Images/thoi-trang-phu-kien.webp" },
+        new { CategoryId = 18, Name = "Điện tử & công nghệ", ImageUrl = "~/Content/Images/dien-tu-cong-nghe.webp" },
+        new { CategoryId = 19, Name = "Nhà cửa & đời sống", ImageUrl = "~/Content/Images/nha-cua-doi-song.webp" },
+        new { CategoryId = 20, Name = "Sức khỏe & làm đẹp", ImageUrl = "~/Content/Images/suc-khoe-lam-dep.webp" },
+        new { CategoryId = 21, Name = "Trẻ em & đồ chơi", ImageUrl = "~/Content/Images/tre-em-do-choi.webp" },
+        new { CategoryId = 22, Name = "Thực phẩm & đồ uống", ImageUrl = "~/Content/Images/thuc-pham-do-uong.webp" },
+        new { CategoryId = 23, Name = "Thể thao & ngoài trời", ImageUrl = "~/Content/Images/the-thao-ngoai-troi.webp" },
+        new { CategoryId = 24, Name = "Ô tô, xe máy & phụ kiện", ImageUrl = "~/Content/Images/phu-kien.webp" },
+        new { CategoryId = 25, Name = "Hàng thiết yếu & chăm sóc cá nhân", ImageUrl = "~/Content/Images/hang-thiet-yeu-cham-soc.webp" },
+        new { CategoryId = 26, Name = "Sản phẩm kỹ thuật số / dịch vụ", ImageUrl = "~/Content/Images/san-pham-ky-thuat-so-dich-vu.webp" }
+    };
+}
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+<main class="container my-4">
+
+    <!-- Categories: horizontal scroll -->
+    <section class="mb-4 position-relative">
+        <h4 class="mb-2">Danh mục</h4>
+        <button class="scroll-btn scroll-left" onclick="scrollCategories(-200)">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="scroll-btn scroll-right" onclick="scrollCategories(200)">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+        <div class="d-flex gap-3 overflow-auto py-2" id="categories-container" style="scrollbar-width: none;">
+            @foreach (var c in categories)
+            {
+                <a class="card text-center flex-shrink-0" style="width:120px; text-decoration:none; color:inherit;" href="@Url.Action("Category","Products", new { id = c.CategoryId })">
+                    <img src="@Url.Content(c.ImageUrl)" class="card-img-top" style="width: 100%; height: 80px; object-fit: contain; border-radius: 8px; " alt="@c.Name" />
+                    <div class="card-body p-2">
+                        <small class="card-title">@c.Name</small>
+                    </div>
+                </a>
+            }
+        </div>
     </section>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <!-- Flash sale section -->
+    <section class="mb-5">
+        <div class="p-4 rounded bg-danger text-white d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <div style="width:140px; height:140px; background:#fff2; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+                    <h3 class="mb-0">FLASH<br/>SALE</h3>
+                </div>
+                <div>
+                    <h3 class="mb-1">Ưu đãi sốc trong hôm nay</h3>
+                    <p class="mb-1">Giảm đến 70% cho số lượng có hạn</p>
+                    <div>
+                        Thời gian còn lại: <span id="flash-countdown" style="font-weight:700;">00:00:00</span>
+                    </div>
+                </div>
+            </div>
+            <div id="FlashContainer" class="w-100 w-md-50 text-black">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections for each category with products -->
+    @foreach (var c in categories)
+    {
+        <section class="mb-5">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="mb-0">@c.Name</h5>
+                <a href="@Url.Action("Category","Home", new { id = c.CategoryId })" class="small">Xem tất cả</a>
+            </div>
+
+            @*<div class="row g-3">
+                @{
+                    var items = productsByCategory.ContainsKey(c.CategoryId) ? productsByCategory[c.CategoryId] : new List<dynamic>();
+                }
+                @foreach (var p in items)
+                {
+                    <div class="col-6 col-sm-4 col-md-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="@p.Image" class="card-img-top" style="height:160px; object-fit:cover;" alt="@p.Name" />
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title mb-1" style="font-size:0.95rem;">@p.Name</h6>
+                                <div class="mt-auto d-flex align-items-center justify-content-between">
+                                    <div class="text-primary fw-bold">₫@string.Format("{0:N0}", p.Price)</div>
+                                    <a class="btn btn-sm btn-outline-primary" href="@Url.Action("Details","Product", new { id = p.Id })">Mua</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>*@
         </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
-    </div>
+    }
+
 </main>
+
+<style>
+    /* nhỏ gọn cho giao diện */
+    .d-flex.gap-3 > a.card { transition: transform .15s ease; }
+    .d-flex.gap-3 > a.card:hover { transform: translateY(-6px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+    .overflow-auto { -ms-overflow-style: none; scrollbar-width: none; }
+    .overflow-auto::-webkit-scrollbar { display: none; }
+    
+    .scroll-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        z-index: 2;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .scroll-btn:hover {
+        background: rgba(255,255,255,1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .scroll-left {
+        left: 0;
+    }
+    
+    .scroll-right {
+        right: 0;
+    }
+    
+    #categories-container {
+        position: relative;
+        scroll-behavior: smooth;
+    }
+</style>
+
+<script>
+    (function(){
+        var end = new Date();
+        end.setHours(end.getHours() + 6);
+        function pad(n){ return n < 10 ? '0'+n : n; }
+        function tick(){
+            var now = new Date();
+            var diff = Math.max(0, end - now);
+            var h = Math.floor(diff / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('flash-countdown').textContent = pad(h)+':'+pad(m)+':'+pad(s);
+            if(diff <= 0) clearInterval(timer);
+        }
+        tick();
+        var timer = setInterval(tick, 1000);
+    })();
+    
+    function scrollCategories(amount) {
+        const container = document.getElementById('categories-container');
+        container.scrollLeft += amount;
+    }
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("FlashSaleProducts", "Products")',
+            success: function (resp) {
+                $("#FlashContainer").html(resp)
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        })
+    })
+</script>

@@ -17,22 +17,53 @@
 
         protected override void Seed(MyEcommerce.Infrastructure.AppDbContext context)
         {
-           //List<Category> categories = new List<Category>();
-           // categories.AddRange( new List<Category>() {
-           //     new Category() {
-           //             CategoryName = "Food",
-           //     },
-           //     new Category()
-           //     {
-           //         CategoryName = "Bevarage"
-           //     },
-           //     new Category()
-           //     {
-           //         CategoryName = "Clothing"
-           //     } }
-           // );
-           // context.Categories.AddRange( categories );
-           // context.SaveChanges();
+            //List<Category> categories = new List<Category>();
+            //categories.AddRange(new List<Category>() {
+            //    new Category() {
+            //            CategoryName = "Thời trang & phụ kiện",
+            //    },
+            //    new Category()
+            //    {
+            //        CategoryName = "Điện tử & công nghệ"
+            //    },
+            //    new Category()
+            //    {
+            //        CategoryName = "Nhà cửa & đời sống"
+            //    },
+            //    new Category()
+            //    {
+            //        CategoryName = "Sức khỏe & làm đẹp"
+            //    }
+            //    ,
+            //    new Category()
+            //    {
+            //        CategoryName = "Trẻ em & đồ chơi"
+            //    }
+            //    ,new Category()
+            //    {
+            //        CategoryName = "Thực phẩm & đồ uống"
+            //    },
+            //    new Category()
+            //    {
+            //        CategoryName = "Thể thao & ngoài trời"
+            //    },
+            //    new Category()
+            //    {
+            //        CategoryName = "Ô tô, xe máy & phụ kiện"
+            //    },
+            //    new Category()
+            //    {
+            //        CategoryName = "Hàng thiết yếu & chăm sóc cá nhân"
+            //    }
+            //    ,
+            //    new Category()
+            //    {
+            //        CategoryName = "Sản phẩm kỹ thuật số / dịch vụ"
+            //    }
+            //}
+            //);
+            //context.Categories.AddRange(categories);
+            //context.SaveChanges();
         }
     }
 }
