@@ -18,6 +18,7 @@ namespace MyEcommerce.Application.Interfaces
         DbSet<Order> Orders { get; set; }
         DbSet<ProductImage> ProductImages { get; set; }
         DbSet<ProductAttribute> ProductAttributes { get; set; }
+        DbSet<CartItem> CartItems { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         DbEntityEntry Entry(object entity);
     }

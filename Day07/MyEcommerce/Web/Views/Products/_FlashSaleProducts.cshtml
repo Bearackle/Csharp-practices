@@ -8,6 +8,7 @@
     <div class="row g-2">
         <div class="col-6 col-sm-4 col-md-3">
             <div class="card">
+                <a href="@Url.Action("Details", "Products", new { id = p.ProductId })" class="stretched-link"></a>
                 <img src="@Url.Content(p.Images.FirstOrDefault().ImagePath)" class="card-img-top" style="width: 100%; height: 80px; object-fit: contain; border-radius: 8px; " />
                 <div class="card-body p-2">
                     <div class="small">@p.ProductName</div>

@@ -30,7 +30,7 @@
         <div class="d-flex gap-3 overflow-auto py-2" id="categories-container" style="scrollbar-width: none;">
             @foreach (var c in categories)
             {
-                <a class="card text-center flex-shrink-0" style="width:120px; text-decoration:none; color:inherit;" href="@Url.Action("Category","Products", new { id = c.CategoryId })">
+                <a class="card text-center flex-shrink-0" style="width:120px; text-decoration:none; color:inherit;" href="@Url.Action("ProductFilter","Products", new { CategoryId = c.CategoryId })">
                     <img src="@Url.Content(c.ImageUrl)" class="card-img-top" style="width: 100%; height: 80px; object-fit: contain; border-radius: 8px; " alt="@c.Name" />
                     <div class="card-body p-2">
                         <small class="card-title">@c.Name</small>
@@ -68,9 +68,19 @@
                 <h5 class="mb-0">@c.Name</h5>
                 <a href="@Url.Action("Category","Home", new { id = c.CategoryId })" class="small">Xem tất cả</a>
             </div>
-
-            <div id="CategoriesPopularItemsContainer-@c.CategoryId"  class="row g-3">
-                
+            <div id="CategoriesPopularItemsContainer-@c.CategoryId" class="row g-3">
+                <script>
+                    $(function(){
+                        $.ajax({
+                            url: '@Url.Action("GetPopularCategoryItems", "Products")',
+                            data: { CategoryId: '@c.CategoryId' },
+                            success: function(response){
+                                $("#CategoriesPopularItemsContainer-@c.CategoryId").html(response);
+                            },
+                            error: function(xhr,error){ console.error(error); }
+                        });
+                    });
+                </script>
             </div>
         </section>
     }
@@ -153,7 +163,7 @@
             }
         })
     })
-    $(document).ready(function () {
+    @*$(document).ready(function () {
         var categories = @Html.Raw(Json.Encode(@categories));
         categories.forEach(function (c) {
             console.log(c.CategoryId);
@@ -170,5 +180,5 @@
                         }
                 })
         })
-     });
+     });*@
 </script>

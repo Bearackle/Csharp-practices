@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using MyEcommerce.Web.Views.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MyEcommerce
@@ -10,4 +11,4 @@ namespace MyEcommerce
             filters.Add(new HandleErrorAttribute());
         }
     }
-}
+}   

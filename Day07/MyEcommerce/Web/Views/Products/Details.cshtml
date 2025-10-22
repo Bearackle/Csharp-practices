@@ -11,6 +11,7 @@
 }
 else
 {
+    @Html.HiddenFor(m => m.ProductId)
     <div class="container my-4">
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb bg-transparent p-0 mb-0">
@@ -181,17 +182,21 @@ else
 
 @section scripts {
     <script>
-        (function () {
-            // Click thumbnail to change carousel handled by data-bs attributes (Bootstrap)
-            // Add to cart placeholder: implement real POST/JS as needed
-            document.getElementById('btnAddToCart')?.addEventListener('click', function (e) {
-                e.preventDefault();
-                var qty = parseInt(document.getElementById('qty').value || "1");
-                if (qty < 1) qty = 1;
-                // replace with real add-to-cart call
-                alert('Thêm ' + qty + ' sản phẩm vào giỏ (demo).');
-            });
-        })();
+        $('#btnAddToCart').click(function () {
+            console.log($('#ProductId').val())
+            $.ajax({
+                url: '@Url.Action("AddProductToCart", "Carts")',
+                type: 'POST',
+                data: {
+                    ProductId: $('#ProductId').val(),
+                    Quantity: $('#qty').val()
+                },
+                success: function (response) {
+                    let CartCountVal = Number($("#CartCount").text()) + Number(response.success);
+                    $('#CartCount').text(CartCountVal)
+                }
+            })
+        })
     </script>
 }
 

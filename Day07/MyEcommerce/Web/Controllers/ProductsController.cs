@@ -132,7 +132,9 @@ namespace MyEcommerce.Web.Controllers
                     products = products.OrderByDescending(p => p.Price);
                 }
             }
-            return PartialView("_ProductList", products);
+            List<Category> categories = (await _mediator.Send(new GetCategoriesQuery())).ToList();
+            ViewBag.Categories = categories;
+            return View("Index", products);
         }
         [HttpGet]
         public async Task<ActionResult> FlashSaleProducts()
@@ -143,16 +145,8 @@ namespace MyEcommerce.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> GetPopularCategoryItems(int CategoryId)
         {
-            try
-            {
                 var products = await _mediator.Send(new GetPopularCategoryItemsQuery(CategoryId));
                 return PartialView("_PopularQueryItems", products);
-            } catch(Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("❌ ERROR: " + ex.ToString());
-                return new HttpStatusCodeResult(500, ex.Message);
-            }
-            
         }
     }
 }
