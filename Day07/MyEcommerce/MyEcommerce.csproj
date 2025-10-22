@@ -286,6 +286,7 @@
     <Compile Include="Application\Products\Commands\UpdateProductCommad.cs" />
     <Compile Include="Application\Products\Commands\UploadFileCloudinaryCommand.cs" />
     <Compile Include="Application\Products\Queries\GetFlashSaleProductQuery.cs" />
+    <Compile Include="Application\Products\Queries\GetPopularCategoryItemsQuery.cs" />
     <Compile Include="Application\Products\Queries\GetProductQuery.cs" />
     <Compile Include="Application\Products\Queries\GetProductWithIdQuery.cs" />
     <Compile Include="App_Start\CustomRazorView.cs" />
@@ -350,6 +351,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\image-not-found.jpg" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -421,6 +423,7 @@
     <Content Include="Web\Views\Products\Details.cshtml" />
     <Content Include="Web\Views\Shared\_ProductList.cshtml" />
     <Content Include="Web\Views\Products\_FlashSaleProducts.cshtml" />
+    <Content Include="Web\Views\Shared\_PopularQueryItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\Categories\Commands\" />
