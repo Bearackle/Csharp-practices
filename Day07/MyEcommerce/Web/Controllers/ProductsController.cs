@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CloudinaryDotNet.Actions;
+using MediatR;
 using MyEcommerce.Application.Categories.Queries;
 using MyEcommerce.Application.Products.Commands;
 using MyEcommerce.Application.Products.Queries;
@@ -138,6 +139,20 @@ namespace MyEcommerce.Web.Controllers
         {
             var flsp = await _mediator.Send(new GetFlashSaleProductQuery());
             return PartialView("_FlashSaleProducts", flsp);
+        }
+        [HttpGet]
+        public async Task<ActionResult> GetPopularCategoryItems(int CategoryId)
+        {
+            try
+            {
+                var products = await _mediator.Send(new GetPopularCategoryItemsQuery(CategoryId));
+                return PartialView("_PopularQueryItems", products);
+            } catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("❌ ERROR: " + ex.ToString());
+                return new HttpStatusCodeResult(500, ex.Message);
+            }
+            
         }
     }
 }
