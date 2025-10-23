@@ -3,9 +3,9 @@
 }
 @model IEnumerable<MyEcommerce.Domain.Entities.Product>
 
-@foreach (var p in Model)
-{
-    <div class="row g-2">
+<div class="row g-2">
+    @foreach (var p in Model)
+    {
         <div class="col-6 col-sm-4 col-md-3">
             <div class="card">
                 <a href="@Url.Action("Details", "Products", new { id = p.ProductId })" class="stretched-link"></a>
@@ -14,7 +14,6 @@
                     <div class="small">@p.ProductName</div>
                     <div class="text-danger fw-bold">
                         @{
-                            // format price safely
                             var price = 0M;
                             try { price = Convert.ToDecimal(p.Price); } catch { price = 0M; }
                         }
@@ -26,5 +25,5 @@
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>

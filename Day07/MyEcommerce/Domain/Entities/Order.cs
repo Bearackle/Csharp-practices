@@ -12,6 +12,7 @@ namespace MyEcommerce.Domain.Entities
         public string UserId { get; set; }
         public ICollection<OrderItem> Items { get; set; }
         public int Status {  get; set; }
+        public string Address { get; set; }
     }
     public class OrderItem
     {

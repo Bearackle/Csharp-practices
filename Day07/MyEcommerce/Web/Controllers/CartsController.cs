@@ -13,12 +13,10 @@ using System.Web.UI.WebControls;
 
 namespace MyEcommerce.Web.Controllers
 {
-    public class CartsController : Controller
+    public class CartsController : BaseController
     {
-        private readonly IMediator _mediator;
-        public CartsController(IMediator mediator) { 
-            _mediator = mediator;
-        }
+        public CartsController(IMediator mediator) : base(mediator)
+        { }
         [Authorize]
         public async Task<ActionResult> Index()
         {
@@ -32,6 +30,10 @@ namespace MyEcommerce.Web.Controllers
         {
             var product = await _mediator.Send(new GetProductWithIdQuery(ProductId));
             int result = await _mediator.Send(new AddProductToCartCommand(product, quantity));
+            if(Session["UserCartCount"] != null)
+            {
+                Session["UserCartCount"] = (int) Session["UserCartCount"] + 1;
+            }
             return Json(new {
                 success = result
             });
@@ -49,13 +51,17 @@ namespace MyEcommerce.Web.Controllers
         public async Task<JsonResult> DeleteProductInCart(int CartItemId)
         {
             await _mediator.Send(new DeleteProductInCartCommand(CartItemId));
+            if (Session["UserCartCount"] != null)
+            {
+                Session["UserCartCount"] = (int)Session["UserCartCount"] - 1;
+            }
             return Json(new {  success = 1 });
         }
         [HttpGet]
-        public async Task<ActionResult> GetCountCartItems()
+        public async Task<JsonResult> GetCountCartItems()
         {
-            var items =  _mediator.Send(new GetCartItemsQuery()) ;
-            return PartialView("_CountItemCart", items);
+            var items = await _mediator.Send(new GetCartItemsQuery()) ;
+            return Json(new { count = items == null ? 0 : items.Count()}, JsonRequestBehavior.AllowGet);
         }
     }
 }

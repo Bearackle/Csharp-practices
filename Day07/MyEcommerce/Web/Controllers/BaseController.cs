@@ -17,7 +17,8 @@ namespace MyEcommerce.Web.Controllers
         }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
+            ViewBag.CartCount = Session["UserCartCount"] ?? 0;
+            base.OnActionExecuting(filterContext);
         }
     }
 }

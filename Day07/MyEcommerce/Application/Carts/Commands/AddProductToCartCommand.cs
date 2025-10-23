@@ -33,7 +33,7 @@ namespace MyEcommerce.Application.Carts.Commands
             public async Task<int> Handle(AddProductToCartCommand request, CancellationToken cancellationToken)
             {
                 var Cart = _context.Carts.Where(c => c.UserId.Equals(_currentUser.UserId))
-                    .Include(c => c.CartItem)
+                    .Include("CartItem.Product")
                     .FirstOrDefault();
                 if (Cart != null && !Cart.CartItem.Any(ci => ci.Product.ProductId.Equals(request.Product.ProductId)))
                 {

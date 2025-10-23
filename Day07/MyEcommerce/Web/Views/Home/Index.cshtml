@@ -19,8 +19,8 @@
 <main class="container my-4">
 
     <!-- Categories: horizontal scroll -->
-    <section class="mb-4 position-relative">
-        <h4 class="mb-2">Danh mục</h4>
+    <section class="mb-2 position-relative">
+        <h4 class="mb-2 text-white">Danh mục</h4>
         <button class="scroll-btn scroll-left" onclick="scrollCategories(-200)">
             <i class="bi bi-chevron-left"></i>
         </button>
@@ -41,7 +41,7 @@
     </section>
 
     <!-- Flash sale section -->
-    <section class="mb-5">
+    <section class="mb-3">
         <div class="p-4 rounded bg-danger text-white d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
             <div class="d-flex align-items-center gap-3">
                 <div style="width:140px; height:140px; background:#fff2; border-radius:8px; display:flex; align-items:center; justify-content:center;">
@@ -64,11 +64,11 @@
     @foreach (var c in categories)
     {
         <section class="mb-5">
-            <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center justify-content-between mb-3 text-white">
                 <h5 class="mb-0">@c.Name</h5>
-                <a href="@Url.Action("Category","Home", new { id = c.CategoryId })" class="small">Xem tất cả</a>
+                <a href="@Url.Action("ProductFilter","Products", new { CategoryId = c.CategoryId })" class="small btn btn-primary btn-sm">Xem tất cả</a>
             </div>
-            <div id="CategoriesPopularItemsContainer-@c.CategoryId" class="row g-3">
+            <div id="CategoriesPopularItemsContainer-@c.CategoryId" class="row g-3 skeleton-card">
                 <script>
                     $(function(){
                         $.ajax({
@@ -88,7 +88,7 @@
 </main>
 
 <style>
-    /* nhỏ gọn cho giao diện */
+    
     .d-flex.gap-3 > a.card { transition: transform .15s ease; }
     .d-flex.gap-3 > a.card:hover { transform: translateY(-6px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
     .overflow-auto { -ms-overflow-style: none; scrollbar-width: none; }
@@ -128,6 +128,11 @@
         position: relative;
         scroll-behavior: smooth;
     }
+    body {
+        background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.9)), url('/Content/Images/bg-1.jpg') center/cover no-repeat;
+        background-attachment: fixed;
+        
+    }
 </style>
 
 <script>
@@ -163,22 +168,4 @@
             }
         })
     })
-    @*$(document).ready(function () {
-        var categories = @Html.Raw(Json.Encode(@categories));
-        categories.forEach(function (c) {
-            console.log(c.CategoryId);
-                    $.ajax({
-                        url: '@Url.Action("GetPopularCategoryItems", "Products")',
-                        data: {
-                            CategoryId: c.CategoryId
-                        },
-                        success: function (response) {
-                            $("#CategoriesPopularItemsContainer-" + c.CategoryId).html(response);
-                        },
-                        error: function (xhr, status, error) {
-                            console.error(error);
-                        }
-                })
-        })
-     });*@
 </script>

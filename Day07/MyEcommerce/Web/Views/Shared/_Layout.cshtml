@@ -24,26 +24,32 @@
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                       
-                        <li class="nav-item">@Html.ActionLink("Products", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+                        <li class="nav-item">@Html.ActionLink("Sản phẩm", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Về cửa hàng", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li class="nav-item">@Html.ActionLink("Liên hệ", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     </ul>
 
-                    <form class="d-flex me-3" method="get" action="@Url.Action("Index", "Products")" role="search">
-                        <input class="form-control me-2" type="search" name="q" placeholder="Tìm sản phẩm, thương hiệu..." aria-label="Search" />
-                        <button class="btn btn-outline-light" type="submit">Tìm</button>
+                    <form class="d-flex me-3 position-relative" method="get" action="@Url.Action("ProductFilter", "Products")" role="search">
+                        <input id="searchBox" class="form-control me-2" type="search" name="Key" placeholder="Tìm sản phẩm, thương hiệu..." aria-label="Search" />
+                        <div id="searchResults" class="position-absolute bg-white border rounded shadow-sm mt-1 w-100"
+                             style="z-index: 1000; display:none;">
+                        </div>
+                        <button class="btn btn-outline-light" type="submit">
+                            Tìm
+                        </button>
                     </form>
 
                     <div class="d-flex align-items-center">
                         <a class="btn btn-outline-light me-2 position-relative" href="@Url.Action("Index", "Carts")" title="Giỏ hàng">
                             <i class="bi bi-cart3"></i> Giỏ hàng
-                            @Html.Partial("_LoginPartial", "Carts")
-                            @Html.Action("GetCountCartItems","Carts")
+                            <span id="CartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle"
+                                  style="font-size:0.7rem;">
+                                @ViewBag.CartCount
+                            </span>
                         </a>
-
-                        @Html.Partial("_LoginPartial")
                     </div>
+                    @Html.Partial("_LoginPartial", "Carts")
                 </div>
             </div>
         </nav>
@@ -54,13 +60,15 @@
                     <h1 class="h4 mb-0"> @ViewBag.PageHeading</h1>
                     <small class="fs-4 fw-semibold" style="color: #e8f5ff;">Sản phẩm chất lượng <br /> Giao hàng nhanh</small>
                 </div>
+                <img src="@Url.Content("~/Content/Images/promo-winter-02.jpg")" alt="Khuyến mãi mùa đông"
+                     class="img-fluid rounded shadow-sm mb-1" style="max-height:200px;" />
                 <div class="d-none d-md-block" style="min-width: 300px;">
                     <div class="winter-promo">
-                      
+
                         <div class="d-flex align-items-center gap-4">
                             <div>
                                 <h5 class="text-white mb-3 d-flex align-items-center">
-                                    <i class="bi bi-snow2 me-2"></i> 
+                                    <i class="bi bi-snow2 me-2"></i>
                                     Lễ hội mùa đông 2025
                                     <i class="bi bi-snow2 ms-2"></i>
                                 </h5>
@@ -93,7 +101,6 @@
             </div>
         </div>
     </header>
-
     <main class="container my-4 flex-grow-1">
         @RenderBody()
     </main>
@@ -126,7 +133,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-<style>
+    <style>
         .winter-promo {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             padding: 20px 25px;
@@ -142,102 +149,129 @@
             width: 100%;
             height: 100%;
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAF4WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OWI0LCAyMDIyLzA2LzEzLTIyOjAxOjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDIzLTEwLTIxVDEwOjE1OjM4KzA3OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTEwLTIxVDEwOjE1OjM4KzA3OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMy0xMC0yMVQxMDoxNTozOCswNzowMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowZWRiNWZkNS1mZWJmLTRhNGEtOWE5MC01YjEzZDdhMzg5NDMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpmYWIwNjBjZC1jMzUyLWM1NDYtYmJkMC00OGI3ZjU4YzQ3ZGEiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5MGMzYjdiMy1jMTI1LWNiNDctYjYwNi0zYWRlZjNmOTg5MmMiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MGMzYjdiMy1jMTI1LWNiNDctYjYwNi0zYWRlZjNmOTg5MmMiIHN0RXZ0OndoZW49IjIwMjMtMTAtMjFUMTA6MTU6MzgrMDc6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyNC4wIChXaW5kb3dzKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MGVkYjVmZDUtZmViZi00YTRhLTlhOTAtNWIxM2Q3YTM4OTQzIiBzdEV2dDp3aGVuPSIyMDIzLTEwLTIxVDEwOjE1OjM4KzA3OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjQuMCAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+O7ZrqAAAAMZJREFUWIXtlrENwjAQRd8RBaCgp2EGGnp6ZqCho2cGGnoaenoaGiRSUCDuj+IiK3AQhDg7kU96snV2Tn9bZ0sAiIguIg4R8fA+tYj0EbGJiNXHqwYeQAOcgRtwBQ7AFKgtIC2wBTrAAhp5VGAPzIEtsJR7FWmADXAGTmLWkYBZRGx9+CZpLc2BXs5V8JjXwAlYyrn6nz8NuV5e4F7ScJ5hzGuRd0mzD5KWmubf5KI3YP4D8/8wz4NFTfNkFvmReYZhGN95AZk8Pn4tVQhbAAAAAElFTkSuQmCC') repeat;
-    pointer-events: none;
-    animation: snow 20s linear infinite;
-    opacity: 0.7;
-}
+            pointer-events: none;
+            animation: snow 20s linear infinite;
+            opacity: 0.7;
+        }
 
-.countdown-container {
-    display: flex;
-    gap: 12px;
-    font-family: 'Arial', sans-serif;
-}
+        .countdown-container {
+            display: flex;
+            gap: 12px;
+            font-family: 'Arial', sans-serif;
+        }
 
-.countdown-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: rgba(255,255,255,0.15);
-    padding: 8px 12px;
-    border-radius: 8px;
-    min-width: 65px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.2);
-}
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 12px;
+            border-radius: 8px;
+            min-width: 65px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        #searchResults {
+            top: 100%; /* ngay dưới input */
+            left: 0;
+            width: 100%; /* bằng input */
+            display: none; /* mặc định ẩn */
+            z-index: 1000;
+        }
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
 
-.countdown-value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
+        .countdown-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.9);
+        }
 
-.countdown-label {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.9);
-}
+        .promo-button {
+            background: #fff;
+            color: #1e3c72;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
 
-.promo-button {
-    background: #fff;
-    color: #1e3c72;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
+            .promo-button:hover {
+                background: #f8f9fa;
+                color: #1e3c72;
+                transform: translateY(-2px);
+            }
 
-.promo-button:hover {
-    background: #f8f9fa;
-    color: #1e3c72;
-    transform: translateY(-2px);
-}
+        @@keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0.8;
+            }
 
-@@keyframes fall {
-    0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(100vh) translateX(50px) rotate(360deg);
-        opacity: 0.2;
-    }
-}
+            100% {
+                transform: translateY(100vh) translateX(50px) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
 
-@@keyframes snow {
-    0% { background-position: 0px 0px; }
-    100% { background-position: 500px 500px; }
-}
-    .snowflake {
-        position: absolute;
-        top: -10px;
-        width: 8px;
-        height: 8px;
-        background: white;
-        border-radius: 50%;
-        opacity: 0.8;
-        animation-name: fall;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-@@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
+        @@keyframes snow {
+            0% {
+                background-position: 0px 0px;
+            }
 
-.bi-snow2 {
-    animation: rotate 3s linear infinite;
-    display: inline-block;
-}
+            100% {
+                background-position: 500px 500px;
+            }
+        }
 
-@@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-</style>
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @@keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .bi-snow2 {
+            animation: rotate 3s linear infinite;
+            display: inline-block;
+        }
+
+        @@keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
     <script>
         function updateCountdown() {
@@ -282,28 +316,52 @@
             // Độ trễ ngẫu nhiên
             flake.style.animationDelay = Math.random() * 10 + 's';
 
-            snowfall.appendChild(flake);
+            //   snowfall.appendChild(flake);
         }
-       
+
+    </script>
+    <script>
+const searchUrl = '@Url.Action("SearchProduct", "Products")';
+
+$(document).ready(function () {
+    let timer;
+    // Dùng delegated event
+        $(document).on("input", "#searchBox", function () {
+            console.log("pop-up active"); // chắc chắn sẽ chạy
+            clearTimeout(timer);
+
+            let query = $(this).val().trim();
+            if (query.length < 2) {
+                $("#searchResults").hide();
+                return;
+            }
+
+            timer = setTimeout(function () {
+                $.ajax({
+                    url: searchUrl,
+                    type: 'GET',
+                    data: { Key: query },
+                    success: function (response) {
+                        $("#searchResults").html(response).show();
+                    },
+                    error: function(err) {
+                        console.error(err);
+                    }
+                });
+            }, 300);
+        });
+
+        $(document).click(function (e) {
+            if (!$(e.target).closest("#searchBox, #searchResults").length) {
+                $("#searchResults").hide();
+            }
+        });
+    });
     </script>
 </body>
 </html>
 
 @section scripts
     {
-    <script>
-         $(document).ready(function () {
-             $.ajax({
-                 url: '@Url.Action("GetCountCartItems","Carts")',
-                 type: 'GET',
-                 success: function (response) {
-                     console.log(response.count)
-                     $('#CartCount').text(response.count)
-                 },
-                 error: function (xhr, status, error) {
-                     console.error('AJAX error:', error);
-                 }
-             })
-         });
-</script>
+    
 }

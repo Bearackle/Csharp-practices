@@ -11,5 +11,6 @@ namespace MyEcommerce.Domain.Entities
         public long? MinPrice { get; set; }
         public long? MaxPrice { get; set; }
         public string Sort { get; set; }
+        public string Key { get; set; }
     }
 }

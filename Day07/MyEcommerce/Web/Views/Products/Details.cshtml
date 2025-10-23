@@ -122,14 +122,14 @@ else
                         <hr />
 
                         <div>
-                            <h6 class="mb-2">Thuộc tính</h6>
+                            <h6 class="mb-2">Thông tin</h6>
                             @if (Model.Attributes != null && Model.Attributes.Any())
                             {
                                 <dl class="row small">
                   
                                     @foreach (var a in Model.Attributes)
                                     {
-                                        if (a.AttributeName == "Mô tả")
+                                        if (a.AttributeName.ToLower().Equals("mô tả"))
                                         {
                                             continue;
                                         }
@@ -162,12 +162,12 @@ else
         @* Optional full attributes table *@
         <div class="card mt-4">
             <div class="card-body">
-                <h5 class="mb-3">Mô tả</h5>
-                @if (Model.Attributes != null && Model.Attributes.Any(f => f.AttributeName == "Mô tả"))
+                <h5 class="mb-3">Mô tả sản phẩm</h5>
+                @if (Model.Attributes != null && Model.Attributes.Any(f => f.AttributeName.ToLower().Equals("mô tả")))
                 {
                     <div>
                         <p>
-                            @Model.Attributes.FirstOrDefault(attr => attr.AttributeName == "Mô tả").AttributeCharacterValue
+                            @Model.Attributes.FirstOrDefault(attr => attr.AttributeName.ToLower().Equals("mô tả")).AttributeCharacterValue
                         </p>
                     </div>
                 }
@@ -197,6 +197,7 @@ else
                 }
             })
         })
+     
     </script>
 }
 

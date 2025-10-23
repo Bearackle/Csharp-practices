@@ -14,13 +14,9 @@ using System.Web.WebPages;
 
 namespace MyEcommerce.Web.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
-        private readonly IMediator _mediator;
-        public ProductsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }        
+        public ProductsController(IMediator mediator) : base(mediator) { }
         public async Task<ActionResult> Index()
         {
             var query = new GetProductQuery();
@@ -116,7 +112,16 @@ namespace MyEcommerce.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> ProductFilter(ProductFilterModel filter)
         {
-            var products = await _mediator.Send(new GetProductQuery());
+            //prepare data
+            IEnumerable<Product> products;
+            if (filter.Key.IsEmpty())
+            {
+                products = await _mediator.Send(new GetProductQuery());
+            }
+            else
+            {
+                products = await _mediator.Send(new GetProductFilterQuery(filter.Key));
+            }
             if (filter.CategoryId != null)
             {
                 products = products.Where(p => p.CategoryId == filter.CategoryId);
@@ -147,6 +152,12 @@ namespace MyEcommerce.Web.Controllers
         {
                 var products = await _mediator.Send(new GetPopularCategoryItemsQuery(CategoryId));
                 return PartialView("_PopularQueryItems", products);
+        }
+        [HttpGet]
+        public async Task<ActionResult> SearchProduct(string Key)
+        {
+            var products = await _mediator.Send(new GetProductFilterQuery(Key));
+            return PartialView("_SearchResult", products);
         }
     }
 }
