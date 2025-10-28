@@ -49,3 +49,5 @@ wwwroot/lib/
 ## Others
 _ReSharper*/
 *.resharper
+
+**/Web.config

@@ -20,6 +20,7 @@ namespace MyEcommerce.Infrastructure
         public DbSet<Order> Orders { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ProductAttribute> ProductAttributes { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 
         public AppDbContext() : base("AppConnection")
         {

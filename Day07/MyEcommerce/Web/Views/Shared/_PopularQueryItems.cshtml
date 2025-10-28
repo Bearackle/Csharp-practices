@@ -9,15 +9,20 @@
     {
         <div class="col-6 col-sm-4 col-md-3">
             <div class="card h-100 shadow-sm">
-                <img src="@(p.Images.FirstOrDefault()?.ImagePath ?? Url.Content("~/Content/Images/image-not-found.png"))" class="card-img-top" style="height:160px; object-fit:cover;" alt="@p.ProductName" />
+                <a href="@Url.Action("Details", "Products", new { id = p.ProductId })" class="stretched-link"></a>
+                <img src="@(p.Images.FirstOrDefault()?.ImagePath ?? Url.Content("~/Content/Images/image-not-found.png"))" class="card-img-top" style="height:160px; object-fit: contain; " alt="@p.ProductName" />
                 <div class="card-body d-flex flex-column">
                     <h6 class="card-title mb-1" style="font-size:0.95rem;">@p.ProductName</h6>
                     <div class="mt-auto d-flex align-items-center justify-content-between">
                         <div class="text-primary fw-bold">₫@string.Format("{0:N0}", p.Price)</div>
-                        <a class="btn btn-sm btn-outline-primary" href="@Url.Action("Details", "Product", new { ProductId = p.ProductId })">Mua</a>
                     </div>
                 </div>
             </div>
         </div>
     }
-}
+} else
+            {
+                <div>
+                    <p>Không có sản phẩm nào</p>
+                </div>
+            }

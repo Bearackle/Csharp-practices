@@ -1,9 +1,91 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Giới thiệu cửa hàng";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
 
-    <p>Use this area to provide additional information.</p>
+<main class="container my-5">
+    <!-- Header -->
+    <section class="text-center mb-5">
+        <h1 class="fw-bold text-primary mb-3">@ViewBag.Title</h1>
+        <p class="lead text-muted">Mang đến cho bạn những sản phẩm chất lượng và trải nghiệm mua sắm tuyệt vời nhất.</p>
+    </section>
+
+    <!-- Giới thiệu -->
+    <section class="row align-items-center mb-5">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="~/Content/images/store.jpg" class="img-fluid rounded-4 shadow" alt="Cửa hàng">
+        </div>
+        <div class="col-md-6">
+            <h3 class="fw-semibold text-dark mb-3">Về chúng tôi</h3>
+            <p class="text-muted">
+                Chúng tôi là một cửa hàng chuyên cung cấp các sản phẩm chất lượng cao với giá cả hợp lý.
+                Với đội ngũ tận tâm và dịch vụ chăm sóc khách hàng chu đáo, chúng tôi mong muốn mang đến sự hài lòng
+                tuyệt đối cho từng khách hàng.
+            </p>
+            <p class="text-muted">
+                Từ những ngày đầu thành lập, cửa hàng đã không ngừng phát triển, mở rộng quy mô và đa dạng sản phẩm
+                để đáp ứng nhu cầu ngày càng cao của người tiêu dùng.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tầm nhìn & Sứ mệnh -->
+    <section class="text-center py-5 bg-light rounded-4 shadow-sm mb-5">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <div class="p-3">
+                    <i class="bi bi-eye-fill text-primary fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Tầm nhìn</h5>
+                    <p class="text-muted">Trở thành thương hiệu được khách hàng tin tưởng và yêu thích nhất trong lĩnh vực bán lẻ trực tuyến.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+                <div class="p-3">
+                    <i class="bi bi-heart-fill text-danger fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Giá trị cốt lõi</h5>
+                    <p class="text-muted">Chất lượng - Uy tín - Tận tâm là kim chỉ nam trong mọi hoạt động của chúng tôi.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-3">
+                    <i class="bi bi-bullseye text-success fs-1 mb-3"></i>
+                    <h5 class="fw-bold">Sứ mệnh</h5>
+                    <p class="text-muted">Mang lại sản phẩm tốt nhất với dịch vụ nhanh chóng, thân thiện và đáng tin cậy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Đội ngũ -->
+    <section class="text-center">
+        <h3 class="fw-semibold mb-4">Đội ngũ của chúng tôi</h3>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <img src="~/Content/images/team1.jpg" class="card-img-top rounded-top-4" alt="Thành viên 1">
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-0">Nguyễn Minh Quân</h6>
+                        <small class="text-muted">Giám đốc điều hành</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <img src="~/Content/images/team2.jpg" class="card-img-top rounded-top-4" alt="Thành viên 2">
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-0">Trần Thị Hoa</h6>
+                        <small class="text-muted">Trưởng phòng kinh doanh</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm rounded-4">
+                    <img src="~/Content/images/team3.jpg" class="card-img-top rounded-top-4" alt="Thành viên 3">
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-0">Lê Văn Khánh</h6>
+                        <small class="text-muted">Trưởng bộ phận kỹ thuật</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

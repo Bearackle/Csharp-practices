@@ -23,7 +23,7 @@ namespace MyEcommerce.Application.Products.Queries
             public async Task<IEnumerable<Product>> Handle(GetFlashSaleProductQuery request, CancellationToken cancellationToken)
             {
                 var FlsProducts = await _context.Products
-                    .OrderBy(p => p.Price).Take(5)
+                    .OrderBy(p => p.Price).Take(4)
                     .ToListAsync();
                 return FlsProducts;
             }

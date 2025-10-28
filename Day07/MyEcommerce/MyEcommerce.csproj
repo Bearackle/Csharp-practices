@@ -280,19 +280,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Carts\Commands\AddProductToCartCommand.cs" />
+    <Compile Include="Application\Carts\Commands\CreateUserCartCommand.cs" />
+    <Compile Include="Application\Carts\Commands\DeleteProductInCartCommand.cs" />
+    <Compile Include="Application\Carts\Commands\UpdateQuantityItemCommand.cs" />
+    <Compile Include="Application\Carts\Queries\GetCartItemsQuery.cs" />
     <Compile Include="Application\Categories\Queries\GetCategoriesQuery.cs" />
+    <Compile Include="Application\Orders\Commands\CreateCurrentOrderCommand.cs" />
+    <Compile Include="Application\Orders\Queries\GetUserOrdersQuery.cs" />
     <Compile Include="Application\Products\Commands\CreateProductCommand.cs" />
     <Compile Include="Application\Products\Commands\RemoveImageCommand.cs" />
     <Compile Include="Application\Products\Commands\UpdateProductCommad.cs" />
     <Compile Include="Application\Products\Commands\UploadFileCloudinaryCommand.cs" />
     <Compile Include="Application\Products\Queries\GetFlashSaleProductQuery.cs" />
     <Compile Include="Application\Products\Queries\GetPopularCategoryItemsQuery.cs" />
+    <Compile Include="Application\Products\Queries\GetProductFilterQuery.cs" />
     <Compile Include="Application\Products\Queries\GetProductQuery.cs" />
     <Compile Include="Application\Products\Queries\GetProductWithIdQuery.cs" />
     <Compile Include="App_Start\CustomRazorView.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
-    <Compile Include="Domain\Entities\ProductFilterModel.cs" />
+    <Compile Include="Domain\Enums\OrderStatus.cs" />
+    <Compile Include="Domain\Enums\PaymentMethod.cs" />
+    <Compile Include="Domain\Models\OrderViewModel.cs" />
+    <Compile Include="Domain\Models\ProductFilterModel.cs" />
     <Compile Include="Domain\Interfaces\ICloudinaryService.cs" />
+    <Compile Include="Domain\Interfaces\ICurrentUser.cs" />
     <Compile Include="Domain\Interfaces\IDbContext.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -302,6 +314,7 @@
     <Compile Include="Domain\Interfaces\IProductRepository.cs" />
     <Compile Include="Infrastructure\AppDbContext.cs" />
     <Compile Include="Infrastructure\CloudinaryService.cs" />
+    <Compile Include="Infrastructure\CurrentUser.cs" />
     <Compile Include="Migrations\Application\202510191354469_Init_table.cs" />
     <Compile Include="Migrations\Application\202510191354469_Init_table.Designer.cs">
       <DependentUpon>202510191354469_Init_table.cs</DependentUpon>
@@ -310,6 +323,14 @@
     <Compile Include="Migrations\Application\202510200459282_change_product_attribute_table_structure.Designer.cs">
       <DependentUpon>202510200459282_change_product_attribute_table_structure.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Application\202510231044058_add_address_for_orders.cs" />
+    <Compile Include="Migrations\Application\202510231044058_add_address_for_orders.Designer.cs">
+      <DependentUpon>202510231044058_add_address_for_orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Application\202510240107213_add_customer_name.cs" />
+    <Compile Include="Migrations\Application\202510240107213_add_customer_name.Designer.cs">
+      <DependentUpon>202510240107213_add_customer_name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Application\Configuration.cs" />
     <Compile Include="Migrations\Identity\202510191352412_Init_table.cs" />
     <Compile Include="Migrations\Identity\202510191352412_Init_table.Designer.cs">
@@ -317,6 +338,8 @@
     </Compile>
     <Compile Include="Migrations\Identity\Configuration.cs" />
     <Compile Include="Web\Controllers\AccountController.cs" />
+    <Compile Include="Web\Controllers\BaseController.cs" />
+    <Compile Include="Web\Controllers\CartsController.cs" />
     <Compile Include="Web\Controllers\HomeController.cs" />
     <Compile Include="Web\Controllers\ManageController.cs" />
     <Compile Include="Domain\Entities\Cart.cs" />
@@ -332,9 +355,15 @@
     <Compile Include="Domain\Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Web\Controllers\OrdersController.cs" />
     <Compile Include="Web\Controllers\ProductsController.cs" />
+    <Compile Include="Web\Views\Filters\CartCountFilter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MyEcomApp.mdf" />
+    <Content Include="App_Data\MyEcomApp_log.ldf" />
+    <Content Include="App_Data\MyEcomIdentity.mdf" />
+    <Content Include="App_Data\MyEcomIdentity_log.ldf" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -351,8 +380,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\bg-1.jpg" />
+    <Content Include="Content\Images\cash.png" />
     <Content Include="Content\Images\image-not-found.jpg" />
+    <Content Include="Content\Images\imgrs.png" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\momo.png" />
+    <Content Include="Content\Images\promo-winter-01.jpg" />
+    <Content Include="Content\Images\promo-winter-02.jpg" />
+    <Content Include="Content\Images\user-login.png" />
+    <Content Include="Content\Images\vnpay.png" />
+    <Content Include="Content\Images\winter-2.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -372,6 +410,8 @@
     <Content Include="Content\Images\thoi-trang-phu-kien.webp" />
     <Content Include="Content\Images\thuc-pham-do-uong.webp" />
     <Content Include="Content\Images\tre-em-do-choi.webp" />
+    <Content Include="Content\Images\winter-4.webp" />
+    <Content Include="Content\Images\user-04.webp" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -424,10 +464,17 @@
     <Content Include="Web\Views\Shared\_ProductList.cshtml" />
     <Content Include="Web\Views\Products\_FlashSaleProducts.cshtml" />
     <Content Include="Web\Views\Shared\_PopularQueryItems.cshtml" />
+    <Content Include="Web\Views\Carts\Index.cshtml" />
+    <Content Include="Web\Views\Shared\_CountItemCart.cshtml" />
+    <Content Include="Web\Views\Shared\_SearchResult.cshtml" />
+    <Content Include="Web\Views\Orders\Checkout.cshtml" />
+    <Content Include="Web\Views\Orders\PayWithInternetBanking.cshtml" />
+    <Content Include="Web\Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\Categories\Commands\" />
-    <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Web\Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -462,6 +509,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Application\202510200459282_change_product_attribute_table_structure.resx">
       <DependentUpon>202510200459282_change_product_attribute_table_structure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Application\202510231044058_add_address_for_orders.resx">
+      <DependentUpon>202510231044058_add_address_for_orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Application\202510240107213_add_customer_name.resx">
+      <DependentUpon>202510240107213_add_customer_name.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Identity\202510191352412_Init_table.resx">
       <DependentUpon>202510191352412_Init_table.cs</DependentUpon>

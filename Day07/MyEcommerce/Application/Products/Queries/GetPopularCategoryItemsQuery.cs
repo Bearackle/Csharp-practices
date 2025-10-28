@@ -36,6 +36,6 @@ namespace MyEcommerce.Application.Products.Queries
                                 .ToListAsync();
                 return pproduct;
             }
-        }
+        }   
     }
 }

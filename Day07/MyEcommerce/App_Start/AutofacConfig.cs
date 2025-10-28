@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MyEcommerce.Application.Interfaces;
 using MyEcommerce.Domain.Interfaces;
 using MyEcommerce.Infrastructure;
+using MyEcommerce.Web.Views.Filters;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,7 +26,7 @@ namespace MyEcommerce.App_Start
 
             builder.RegisterType<AppDbContext>()
                 .As<IDbContext>()
-                .SingleInstance();
+                .InstancePerLifetimeScope();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
@@ -39,6 +40,8 @@ namespace MyEcommerce.App_Start
                .AsClosedTypesOf(typeof(INotificationHandler<>))
                .InstancePerLifetimeScope();
 
+            builder.RegisterType<CartCountFilter>().InstancePerLifetimeScope();
+
             builder.Register<ServiceFactory>(ctx =>
             {
                 var c = ctx.Resolve<IComponentContext>();
@@ -48,7 +51,9 @@ namespace MyEcommerce.App_Start
             builder.RegisterType<Mediator>()
               .As<IMediator>()
               .InstancePerLifetimeScope();
-
+            builder.RegisterType<CurrentUser>()
+                .As<ICurrentUser>()
+                .InstancePerLifetimeScope();
             //cloudinary config
             builder.Register(c =>
             {
