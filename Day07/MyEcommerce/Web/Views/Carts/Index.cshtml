@@ -66,8 +66,8 @@
                 <h4 class="text-primary fw-bold mb-3">
                     @string.Format("{0:N0} ₫", Model.Sum(i => i.Product.Price * i.Quantity))
                 </h4>
-                <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success w-100">
-                    Thanh toán <i class="bi bi-credit-card ms-2"></i>
+                <a href="@Url.Action("Checkout", "Orders")" class="btn btn-success w-100">
+                    Đặt hàng <i class="bi bi-credit-card ms-2"></i>
                 </a>
             </div>
         </div>

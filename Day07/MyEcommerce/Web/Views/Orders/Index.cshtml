@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Web/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<MyEcommerce.Domain.Entities.Order>
+
+<h2 class="mb-4 text-center fw-bold">Đơn hàng của bạn</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info text-center shadow-sm">
+        <h5>Giỏ hàng của bạn đang trống.</h5>
+        <a href="@Url.Action("Index", "Products")" class="btn btn-primary mt-3">
+            Bạn chưa mua gì!
+        </a>
+    </div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded-3">
+        <table class="table align-middle text-center mb-0">
+            <thead class="table-primary">
+                <tr>
+                    <th>Mã đơn hàng</th>
+                    <th>Tên khách hàng</th>
+                    <th>Tổng giá trị</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td class="fw-semibold">#@Model.ElementAt(i).OrderId</td>
+                        <td class="fw-semibold">@Model.ElementAt(i).CustomerName</td>
+                        <td>@string.Format("{0:N0} ₫", @Model.ElementAt(i).Items.Sum(it => it.ProductPrice))</td>
+                        <td>@(Enum.GetName(typeof(MyEcommerce.Domain.Enums.OrderStatus), Model.ElementAt(i).Status))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

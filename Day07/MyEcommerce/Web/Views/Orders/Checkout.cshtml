@@ -1,11 +1,11 @@
 ﻿@{
     Layout = "~/Web/Views/Shared/_Layout.cshtml";
 }
-@model MyEcommerce.Domain.Entities.Cart
+@model IEnumerable<MyEcommerce.Domain.Entities.CartItem>
 <div class="container py-5">
     <h2 class="mb-4 text-center fw-bold">Kiểm tra đơn hàng</h2>
 
-    @if (Model == null || !Model.CartItem.Any())
+    @if (Model == null || !Model.Any())
     {
         <div class="alert alert-info text-center shadow-sm">
             <h5>Giỏ hàng của bạn đang trống.</h5>
@@ -16,64 +16,123 @@
     }
     else
     {
-        <div class="table-responsive shadow-sm rounded-3">
-            <table class="table align-middle text-center mb-0">
-                <thead>Chi tiết đơn hàng</thead>
-                <tr>
-                   @Html.TextBoxFor(m => )
-                </tr>
-                <thead class="table-primary">
+        using (Html.BeginForm("Create", "Orders", FormMethod.Post))
+        {
+            <div class="table-responsive shadow-sm rounded-3">
+                <table class="table align-middle text-center mb-0">
                     <tr>
-                        <th>Ảnh</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Số lượng</th>
-                        <th>Tổng</th>
-                        <th></th>
+                        @Html.Label("CustomerName", "Tên khách hàng")
+                        @Html.TextBox("CustomerName", null, new { @class = "form-control" })
                     </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < Model.Count(); i++)
-                    {
-                        <tr data-cartitemid="@Model.ElementAt(i).CartItemId">
-                            <td style="width:100px;">
-                                <img src="@Model.ElementAt(i).Product.Images.FirstOrDefault().ImagePath" alt="@Model.ElementAt(i).Product.ProductName"
-                                     class="img-fluid rounded shadow-sm" style="max-height: 80px;" />
-                            </td>
-                            <td class="fw-semibold">@Model.ElementAt(i).Product.ProductName</td>
-                            <td>@string.Format("{0:N0} ₫", @Model.ElementAt(i).Product.Price)</td>
-
-                            <td style="width:120px;">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <button class="btn-decrease btn btn-sm btn-outline-secondary">−</button>
-                                    <input type="text" value="@Model.ElementAt(i).Quantity" class="form-control text-center mx-1" style="width:50px;" readonly />
-                                    <button class="btn-increase btn btn-sm btn-outline-secondary">+</button>
-                                </div>
-                            </td>
-                            <td class="fw-bold">@string.Format("{0:N0} ₫", @Model.ElementAt(i).Product.Price * @Model.ElementAt(i).Quantity)</td>
-                            <td>
-                                <button class="btn btn-sm btn-danger" onclick="removeFromCart(@Model.ElementAt(i).CartItemId)">
-                                    <i class="bi bi-trash"></i> Xóa
-                                </button>
-                            </td>
+                    <tr>
+                        @Html.Label("Address", "Địa chỉ nhận hàng")
+                        @Html.TextBox("Address", null, new { @class = "form-control" })
+                    </tr>
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count(); i++)
+                        {
+                            <tr data-cartitemid="@Model.ElementAt(i).CartItemId">
+                                <td style="width:100px;">
+                                    <img src="@Model.ElementAt(i).Product.Images.FirstOrDefault().ImagePath" alt="@Model.ElementAt(i).Product.ProductName"
+                                         class="img-fluid rounded shadow-sm" style="max-height: 80px;" />
+                                </td>
+                                <td class="fw-semibold">@Model.ElementAt(i).Product.ProductName</td>
+                                <td>@string.Format("{0:N0} ₫", @Model.ElementAt(i).Product.Price)</td>
 
-        <div class="d-flex justify-content-end mt-4">
-            <div class="card shadow-sm p-3" style="width: 350px;">
-                <h5 class="fw-bold mb-3">Tổng thanh toán:</h5>
-                <h4 class="text-primary fw-bold mb-3">
-                    @string.Format("{0:N0} ₫", Model.Sum(i => i.Product.Price * i.Quantity))
-                </h4>
-                <a href="@Url.Action("Checkout", "Cart")" class="btn btn-success w-100">
-                    Thanh toán <i class="bi bi-credit-card ms-2"></i>
-                </a>
+                                <td style="width:120px;">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <input type="text" value="@Model.ElementAt(i).Quantity" class="form-control text-center mx-1" style="width:50px;" readonly />
+                                    </div>
+                                </td>
+                                <td class="fw-bold">@string.Format("{0:N0} ₫", @Model.ElementAt(i).Product.Price * @Model.ElementAt(i).Quantity)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
-        </div>
+            <div class="d-flex justify-content-end mt-4">
+                <div class="card shadow-sm p-3" style="width: 350px;">
+                    <h5 class="fw-bold mb-3">Tổng thanh toán:</h5>
+                    <h4 class="text-primary fw-bold mb-3">
+                        @string.Format("{0:N0} ₫", Model.Sum(i => i.Product.Price * i.Quantity))
+                    </h4>
+                    <h5>Phương thức thanh toán</h5>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+
+                        <!-- Thanh toán khi nhận hàng -->
+                        <label class="border rounded-3 p-2 d-flex flex-column align-items-center text-center payment-option" style="width: 100px; cursor:pointer;">
+                            <input type="radio" name="PaymentMethod" value="0" class="form-check-input mb-2" checked hidden>
+                            <img src="@Url.Content("~/Content/images/cash.png")" class="img-fluid mb-1" style="height:40px;" alt="COD">
+                            <span class="small">Cash</span>
+                        </label>
+
+                        <!-- Thanh toán VNPAY -->
+                        <label class="border rounded-3 p-2 d-flex flex-column align-items-center text-center payment-option" style="width: 100px; cursor:pointer;">
+                            <input type="radio" name="PaymentMethod" value="1" class="form-check-input mb-2" hidden>
+                            <img src="@Url.Content("~/Content/images/vnpay.png")" class="img-fluid mb-1" style="height:40px;" alt="Thẻ">
+                            <span class="small">VNPAY</span>
+                        </label>
+
+                        <!-- Thanh toán bằng Momo -->
+                        <label class="border rounded-3 p-2 d-flex flex-column align-items-center text-center payment-option" style="width: 100px; cursor:pointer;">
+                            <input type="radio" name="PaymentMethod" value="2" class="form-check-input mb-2" hidden>
+                            <img src="@Url.Content("~/Content/images/momo.png")" class="img-fluid mb-1" style="height:40px;" alt="Momo">
+                            <span class="small">Momo</span>
+                        </label>
+
+
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">
+                        Thanh toán <i class="bi bi-credit-card ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        }
     }
 </div>
 
+<style>
+    /* Mặc định */
+    .payment-option {
+        transition: all 0.2s ease-in-out;
+    }
 
+        /* Khi hover */
+        .payment-option:hover {
+            border-color: #0d6efd;
+            background-color: #f8f9fa;
+        }
+
+
+        /* Khi được chọn — đổi màu nền và viền */
+        .payment-option input:checked ~ * {
+            color: #0d6efd;
+        }
+
+        .payment-option input:checked ~ img {
+            opacity: 0.9;
+        }
+
+        /* Dùng ::before để áp dụng màu nền khi checked */
+        .payment-option input:checked + img {
+            background-color: #e7f1ff;
+        }
+
+        /* Cách đúng để làm nền xanh khi checked */
+        .payment-option input:checked ~ span,
+        .payment-option:has(input:checked) {
+            background-color: #e7f1ff;
+            border-color: #0d6efd;
+        }
+</style>

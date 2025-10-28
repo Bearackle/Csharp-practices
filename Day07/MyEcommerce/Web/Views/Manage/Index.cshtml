@@ -34,27 +34,15 @@
 
                 <dt class="col-sm-3">External Logins:</dt>
                 <dd class="col-sm-9">
-                    @Model.Logins.Count 
+                    @Model.Logins.Count
                     @Html.ActionLink("Kiểm tra", "ManageLogins", null, new { @class = "btn btn-link p-0" })
                 </dd>
-
-                @* Uncomment when phone number logic is ready *@
-                @*
-                    <dt class="col-sm-3">Phone Number:</dt>
-                    <dd class="col-sm-9">
-                        @(Model.PhoneNumber ?? "None")
-                        ...
-                    </dd>
-                *@
-
-                @*<dt class="col-sm-3">Two-Factor Authentication:</dt>
+            </dl>
+            <dl class="row mb-0">
+                <dt class="col-sm-3">External Logins:</dt>
                 <dd class="col-sm-9">
-                    <p class="mb-1">
-                        There are no two-factor authentication providers configured.
-                        See <a href="https://go.microsoft.com/fwlink/?LinkId=403804" target="_blank">this article</a>
-                        for details on setting up two-factor authentication.
-                    </p>
-                </dd>*@
+                    @Html.ActionLink("Xem đơn hàng của bạn", "Index" , "Orders", null, new { @class = "btn btn-link p-0" })
+                </dd>
             </dl>
         </div>
     </div>

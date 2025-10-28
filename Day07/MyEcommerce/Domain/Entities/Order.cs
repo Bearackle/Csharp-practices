@@ -10,6 +10,7 @@ namespace MyEcommerce.Domain.Entities
     {
         public long OrderId { get; set; }
         public string UserId { get; set; }
+        public string CustomerName { get; set; }
         public ICollection<OrderItem> Items { get; set; }
         public int Status {  get; set; }
         public string Address { get; set; }

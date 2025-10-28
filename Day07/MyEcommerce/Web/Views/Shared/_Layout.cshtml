@@ -14,7 +14,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="@Url.Action("Index", "Home")">
                     <img src="~/Content/images/logo.png" alt="Logo" style="height:36px; width:auto; margin-right:8px;" />
-                    <strong>Bách hóa</strong>
+                    <strong>Cửa Hàng Bách hóa Tương lai</strong>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
@@ -134,6 +134,7 @@
     @RenderSection("scripts", required: false)
 
     <style>
+
         .winter-promo {
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             padding: 20px 25px;
@@ -350,13 +351,13 @@ $(document).ready(function () {
                 });
             }, 300);
         });
-
         $(document).click(function (e) {
             if (!$(e.target).closest("#searchBox, #searchResults").length) {
                 $("#searchResults").hide();
             }
         });
-    });
+});
+        $()
     </script>
 </body>
 </html>
